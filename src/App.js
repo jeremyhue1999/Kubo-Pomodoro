@@ -1,9 +1,10 @@
+import React from 'react'
+import ActivitiesPage from './Pages/Activities/activities-page'
 
-function App() {
+export default function App() {
   return (
     <div>
+        <ActivitiesPage/>
     </div>
-  );
+  )
 }
-
-export default App;
