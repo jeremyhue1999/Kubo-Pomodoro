@@ -6,4 +6,4 @@ script:
 install:
   - npm install -g firebase-tools
 after_success:
-  - firebase deploy --token 1//0eHRooOCDGkcpCgYIARAAGA4SNgF-L9IrOjA4XNjiNIcc-YFHmBkzZdb9hc6FmJTeWoQb_JZRN8bOtud-VQP4PFP8x-O5XafgSw
+  - firebase deploy --token $FIREBASE_TOKEN
