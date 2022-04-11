@@ -8,7 +8,6 @@ const CreateSubtasks = ({ showCreateSubtasks, onClose }) => {
   if (!showCreateSubtasks) {
     return (
       <div className="my-4 hidden">
-        <Text className="text-white text-lg" value="Subtasks" />
         <SubtaskForm />
       </div>
     )

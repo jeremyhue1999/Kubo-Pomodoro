@@ -34,7 +34,7 @@ const SubtaskForm = () => {
   }
 
   return (
-    <div>
+    <div className="w-full">
       <form>
         <Input
           className="my-1 w-full placeholder:text-md"

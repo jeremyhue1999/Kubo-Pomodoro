@@ -7,11 +7,12 @@ import Topbar from '../../components/bar/topbar'
 
 const Swimlanes = () => {
   const [task, setTask] = useState("")
+  
   const [taskList, setTaskList] = useState([
     {
       id: 1,
       value: 'Todo Task',
-      desc: 'Todo Description',
+      desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur quibusdam reprehenderit quas impedit ipsa culpa atque aperiam quae, cumque quidem aliquam repellendus officiis, ab maiores, illum perferendis ratione iste laborum?',
       completed: false,
       doing: false
     },
@@ -58,12 +59,12 @@ const Swimlanes = () => {
   return (
     <div className='w-full'>
       <Topbar />
-      <div className='flex justify-evenly gap-32 mx-28'>
+      <div className='flex justify-start gap-10 ml-10'>
         {/* TODO SWIMLANE */}
-        <div className='flex items-center flex-col w-72'>
+        <div className='flex items-center flex-col w-96'>
           <Text 
             className='text-slate-900 text-2xl font-semibold mb-6'
-            value='Todo'
+            value='Tasks'
           />
           {taskList.map((task) => {
             if (task.completed === false && task.doing === false) {
@@ -93,26 +94,9 @@ const Swimlanes = () => {
             value="Add Task"
           />
         </div>
-        {/* DOING SWIMLANE */}
-        <div className='flex flex-col items-center w-72'>
-          <Text 
-            className='text-slate-900 text-2xl font-semibold mb-6'
-            value='Doing'
-          />
-          {taskList.map((task) => {
-            if (task.completed === false && task.doing === true) {
-              return <TaskCard 
-                task={task}
-                key={task.id}
-                taskList={taskList}
-                setTaskList={setTaskList}
-                setShowAddTaskButton={setShowAddTaskButton}
-              />
-            }})
-          }
-        </div>
+        
         {/* DONE SWIMLANE */}
-        <div className='flex flex-col items-center w-72'>
+        <div className='flex flex-col items-center w-64'>
           <Text 
             className='text-slate-900 text-2xl font-semibold mb-6'
             value='Completed'
