@@ -1,28 +1,29 @@
+import { useState } from "react"
 import Subtask from "./subtask"
 
-const SubtaskList = ({ 
-  subtaskList, 
-  setSubtaskList,
-  renamedSubtask,
-  setRenamedSubtask,
+const SubtaskList = ({
+  currentTask,
+  subtaskList,
+  setSubtaskList
 }) => {
 
-  return (
-    <ul>
-      {subtaskList.map((subtask) => {
-      return <Subtask 
-        value={subtask.value}
-        key={subtask.id}
-        isCompleted={subtask.complete}
-        subtask={subtask}
-        subtaskList={subtaskList}
-        setSubtaskList={setSubtaskList}
-        renamedSubtask={renamedSubtask}
-        setRenamedSubtask={setRenamedSubtask}
-        />
-      })}
-    </ul>
-  )
+  if (currentTask == null || subtaskList == null) {
+    return null
+  } else {
+    return (
+      <ul>
+        {subtaskList.map((subtask) => {
+          return <Subtask 
+            subtask={subtask}
+            key={subtask.id}
+            currentTask={currentTask}
+            subtaskList={subtaskList}
+            setSubtaskList={setSubtaskList}
+            />
+        })}
+      </ul>
+    )
+  }
 }
 
 export default SubtaskList

@@ -14,41 +14,27 @@ const Swimlanes = () => {
       value: 'Todo Task',
       desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur quibusdam reprehenderit quas impedit ipsa culpa atque aperiam quae, cumque quidem aliquam repellendus officiis, ab maiores, illum perferendis ratione iste laborum?',
       completed: false,
-      doing: false
+      doing: false,
+      
     },
     {
-      id: 2,
-      value: 'Doing Task',
-      desc: 'Doing Description',
+      id: 231,
+      value: 'Task Test',
+      desc: 'Description Test',
       completed: false,
-      doing: true
-    },
-    {
-      id: 21,
-      value: 'Doing Task',
-      desc: 'Doing Description',
-      completed: false,
-      doing: true
+      doing: false,
+      subtasks: []
     },
     {
       id: 31,
       value: 'Completed Task',
       desc: 'Completed Description',
       completed: true,
-      doing: false
+      doing: false,
+      subtasks: []
     },
-    {
-      id: 3,
-      value: 'Completed Task',
-      desc: 'Completed Description',
-      completed: true,
-      doing: false
-    },
-    
   ])
   const [description, setDescription] = useState("")
-  console.log(taskList)
-
   const [showCreateTask, setShowCreateTask] = useState(false)
   const [showAddTaskButton, setShowAddTaskButton] = useState("block")
 
@@ -56,6 +42,7 @@ const Swimlanes = () => {
     setShowCreateTask(true)
     setShowAddTaskButton("hidden")
   }
+
   return (
     <div className='w-full'>
       <Topbar />

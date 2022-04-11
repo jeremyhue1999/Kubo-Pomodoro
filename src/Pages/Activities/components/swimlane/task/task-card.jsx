@@ -10,6 +10,7 @@ import { VscCheck } from "react-icons/vsc"
 
 const TaskCard = ({ 
 	task,
+	taskList,
 	setTaskList,
 	setShowAddTaskButton }) => {
 
@@ -24,6 +25,7 @@ const TaskCard = ({
     completed: false,
 		doing: false
   })
+	const [taskID, setTaskID] = useState(0)
 
 	let cursorType = ""
 	if (!showCreateSubtasks) {
@@ -32,10 +34,16 @@ const TaskCard = ({
 		cursorType = "auto"
 	}
 
+	const resetID = () => {
+		showAddTaskButton() 
+		setTaskID('')
+	}
+
 	const hideAddTaskButton = () => {
 		setShowCreateSubtasks(true)
 		setShowAddTaskButton("hidden")
 		setEditMode(true)
+		setTaskID(task.id)
 	}
 
 	const showAddTaskButton = () => {
@@ -44,6 +52,10 @@ const TaskCard = ({
 		setEditMode(false)
 		setEditTask(false)
 		setEditDescription(false)
+	}
+
+	if (task.id !== taskID) {
+		
 	}
 
 	const showEditTaskInput = () => {
@@ -207,7 +219,6 @@ const TaskCard = ({
 								>
 								</Button>
 							</div>
-
 						: <div>
 								{editMode 
 								? <div className="flex w-full text-slate-100 text-xl break-all">
@@ -227,16 +238,18 @@ const TaskCard = ({
 											className="truncate"
 											value={task.desc}
 										/>
-									</div>
-									
+									</div>	
 								}
 							</div>
 						}
 				</div>
 			</div>
 			<CreateSubtasks 
+				task={task}
+				taskList={taskList}
 				showCreateSubtasks={showCreateSubtasks}
-				onClose={showAddTaskButton}
+				onClose={resetID}
+				taskID={taskID}
 			/>
 		</div>
 	)
