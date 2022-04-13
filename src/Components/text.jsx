@@ -4,12 +4,12 @@ const Text = ({
 		onClick = () => {},
 }) => {
   return (
-		<p 
+		<span 
 			className={className}
 			onClick={onClick}
 		>
 		{value}
-		</p>
+		</span>
   )
 }
 

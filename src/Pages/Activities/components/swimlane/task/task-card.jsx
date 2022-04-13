@@ -10,7 +10,6 @@ import { VscCheck } from "react-icons/vsc"
 
 const TaskCard = ({ 
 	task,
-	taskList,
 	setTaskList,
 	setShowAddTaskButton }) => {
 
@@ -22,10 +21,8 @@ const TaskCard = ({
     id: null,
     value: '',
 		desc: '',
-    completed: false,
-		doing: false
+    completed: false
   })
-	const [taskID, setTaskID] = useState(0)
 
 	let cursorType = ""
 	if (!showCreateSubtasks) {
@@ -34,16 +31,10 @@ const TaskCard = ({
 		cursorType = "auto"
 	}
 
-	const resetID = () => {
-		showAddTaskButton() 
-		setTaskID('')
-	}
-
 	const hideAddTaskButton = () => {
 		setShowCreateSubtasks(true)
 		setShowAddTaskButton("hidden")
 		setEditMode(true)
-		setTaskID(task.id)
 	}
 
 	const showAddTaskButton = () => {
@@ -52,10 +43,6 @@ const TaskCard = ({
 		setEditMode(false)
 		setEditTask(false)
 		setEditDescription(false)
-	}
-
-	if (task.id !== taskID) {
-		
 	}
 
 	const showEditTaskInput = () => {
@@ -81,8 +68,7 @@ const TaskCard = ({
 						id: null,
 						value: '',
 						desc: '',
-						completed: false,
-						doing: false
+						completed: false
 					})
 					setEditTask(false)
 				}
@@ -104,8 +90,7 @@ const TaskCard = ({
 					id: null,
 					value: '',
 					desc: '',
-					completed: false,
-      		doing: false
+					completed: false
 				})
 				setEditTask(false)
 			}
@@ -118,8 +103,7 @@ const TaskCard = ({
 					id: null,
 					value: '',
 					desc: '',
-					completed: false,
-      		doing: false
+					completed: false
 				})
 				setEditDescription(false)
 			}
@@ -131,9 +115,7 @@ const TaskCard = ({
       id: task.id,
       value: e.target.value,
 			desc: task.desc,
-      completed: false,
-			doing: false
-			
+      completed: false
     })
 	}
 	
@@ -142,8 +124,7 @@ const TaskCard = ({
       id: task.id,
       value: task.value,
 			desc: e.target.value,
-      completed: false,
-			doing: false
+      completed: false
     })
 	}
 	
@@ -154,7 +135,7 @@ const TaskCard = ({
 	}
 
 	return (
-		<div className="flex flex-col h-auto bg-slate-700 w-full px-4 py-2 mb-4 rounded">
+		<div className="flex flex-col h-auto bg-slate-700 w-72 px-4 py-2 mb-4 rounded">
 			<div className={`cursor-${cursorType}`} onClick={hideAddTaskButton}>
 				<div className="flex flex-col gap-2">
 						{editTask 
@@ -177,15 +158,15 @@ const TaskCard = ({
 							</div> 
 						: <div>
 								{editMode 
-								? <div className="flex items-center w-full text-slate-100 text-xl break-all">
+								? <div className="flex justify-between">
 										<Text
-											className="w-full"
+											className="text-slate-100 text-xl" 
 											value={task.value}
 											onClick={showEditTaskInput}
 										/>
 										<AiOutlineEdit
-											className="ml-2 cursor-pointer place-self-start fill-slate-50 hover:fill-slate-400 " 
-											size={42}
+											className="cursor-pointer fill-slate-50 hover:fill-slate-400 " 
+											size={32}
 											onClick={showEditTaskInput} 
 										/>
 									</div> 
@@ -213,43 +194,39 @@ const TaskCard = ({
 									onClick={renameTaskFunctionClick}
 									value=
 									{<VscCheck 
-											className="fill-white py-1" 
-											size={32}
+										className="fill-white py-1" 
+										size={32}
 									/>}
 								>
 								</Button>
 							</div>
+
 						: <div>
 								{editMode 
-								? <div className="flex w-full text-slate-100 text-xl break-all">
+								? <div className="flex justify-between">
 										<Text
-											className="w-full"
+											className="text-slate-100 text-xl" 
 											value={task.desc}
 											onClick={showEditDescriptionInput}
 										/>
 										<AiOutlineEdit
-											className="ml-2 cursor-pointer place-self-start fill-slate-50 hover:fill-slate-400" 
-											size={42}
+											className="cursor-pointer fill-slate-50 hover:fill-slate-400 " 
+											size={32}
 											onClick={showEditDescriptionInput} 
 										/>
 									</div> 
-								: <div className="text-slate-100 text-xl">
-										<Text
-											className="truncate"
-											value={task.desc}
-										/>
-									</div>	
+								: <Text
+										className="text-slate-100 text-xl" 
+										value={task.desc}
+									/>
 								}
 							</div>
 						}
 				</div>
 			</div>
 			<CreateSubtasks 
-				task={task}
-				taskList={taskList}
 				showCreateSubtasks={showCreateSubtasks}
-				onClose={resetID}
-				taskID={taskID}
+				onClose={showAddTaskButton}
 			/>
 		</div>
 	)

@@ -3,63 +3,42 @@ import Button from "../../../../../Components/button"
 import Input from "../../../../../Components/input"
 import SubtaskList from "./subtask-list"
 import { VscAdd } from "react-icons/vsc"
-import { useEffect } from "react"
 
-const SubtaskForm = ({ taskList, taskID }) => {
-  const [subtask, setSubtask] = useState({
-    id: Math.random() * 10000, 
-    value: '', 
+const SubtaskForm = () => {
+  const [subtask, setSubtask] = useState("")
+  const [subtaskList, setSubtaskList] = useState([])
+  console.log(subtaskList)
+  const [renamedSubtask, setRenamedSubtask] = useState({
+    id: null,
+    value: '',
     completed: false
   })
-  const currentTask = taskList.find((e) => e.id == taskID)
-  const [subtaskList, setSubtaskList] = useState()
 
-  useEffect(() => {
-    if (subtaskList == null) {
-      return subtaskList
-    } else {
-      currentTask.subtasks = subtaskList
-    }
-  })
-
-  useEffect(() => {
-    if (currentTask == null) {
-      return currentTask
-    } else {
-      setSubtaskList(currentTask.subtasks)
-    }
-  })
-  
   const changeHandler = e => {
     /* Adds a Subtask */
-    setSubtask({
-      id: Math.random() * 10000, 
-      value: e.target.value, 
-      completed: false
-    })
+    setSubtask(e.target.value)
   }
 
   const submitHandler = e => {
     /* Adds a Subtask Object on subtaskList */
     e.preventDefault()
-    if (subtask.value === '') {
+    if (subtask.length === 0) {
       console.log("No Input")
     } else {
-      currentTask.subtasks.push(subtask)
-      setSubtask({
-        id: subtask.id,
-        value: '', 
-        completed: false
-      })
+      setSubtaskList([
+        ...subtaskList,
+        {id: Math.random() * 10000, value: subtask, completed: false}
+      ])
+      setSubtask('')
     }
   }
 
   return (
-    <div className="w-full">
+    <div>
       <form>
         <Input
           className="my-1 w-full placeholder:text-md"
-          value={subtask.value}
+          value={subtask}
           name="Subtask"
           type="text"
           placeholder="Subtask Name"
@@ -77,10 +56,11 @@ const SubtaskForm = ({ taskList, taskID }) => {
         >
         </Button>
       </form>
-      <SubtaskList
-        currentTask={currentTask}
-        subtaskList={subtaskList}
+      <SubtaskList 
+        subtaskList={subtaskList} 
         setSubtaskList={setSubtaskList}
+        renamedSubtask={renamedSubtask}
+        setRenamedSubtask={setRenamedSubtask}
       />
     </div>
   )
