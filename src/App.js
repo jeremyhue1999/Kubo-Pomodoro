@@ -5,7 +5,8 @@ import ActivitiesPage from './Pages/Activities/activities-page'
 export default function App() {
   return (
     <div>
-        <Login />
+        <ActivitiesPage/>
+        {/* <Login /> */}
     </div>
   )
 }

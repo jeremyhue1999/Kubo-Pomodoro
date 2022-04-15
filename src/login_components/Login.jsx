@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import {render} from 'react-dom';
 import Signup from './Signup.jsx';
 import ForgotPassword from "./ForgotPassword.jsx";

@@ -3,7 +3,7 @@ import TaskForm from './task/task-form'
 import TaskCard from './task/task-card'
 import Button from "../../../../Components/button"
 import Text from '../../../../Components/text'
-import Topbar from '../../components/bar/topbar'
+import Calendar from 'react-calendar/dist/umd/Calendar'
 
 const Swimlanes = () => {
   const [task, setTask] = useState("")
@@ -13,7 +13,9 @@ const Swimlanes = () => {
       value: 'Todo Task',
       desc: 'Todo Description',
       completed: false,
-      doing: false
+      doing: false,
+      subtasks: []
+      
     },
     {
       id: 2,
@@ -34,16 +36,9 @@ const Swimlanes = () => {
       value: 'Completed Task',
       desc: 'Completed Description',
       completed: true,
-      doing: false
-    },
-    {
-      id: 3,
-      value: 'Completed Task',
-      desc: 'Completed Description',
-      completed: true,
-      doing: false
-    },
-    
+      doing: false,
+      subtasks: []
+    }
   ])
   const [description, setDescription] = useState("")
   console.log(taskList)
@@ -56,9 +51,8 @@ const Swimlanes = () => {
     setShowAddTaskButton("hidden")
   }
   return (
-    <div className='w-full'>
-      <Topbar />
-      <div className='flex justify-evenly gap-32 mx-28'>
+    <div className='w-auto h-auto bg-white drop-shadow-md m-6 p-6 pl-2 mt-20'>
+      <div className='flex justify-start gap-10 ml-10'>
         {/* TODO SWIMLANE */}
         <div className='flex items-center flex-col w-72'>
           <Text 
@@ -112,7 +106,7 @@ const Swimlanes = () => {
           }
         </div>
         {/* DONE SWIMLANE */}
-        <div className='flex flex-col items-center w-72'>
+        <div className='flex flex-col items-center w-96'>
           <Text 
             className='text-slate-900 text-2xl font-semibold mb-6'
             value='Completed'
