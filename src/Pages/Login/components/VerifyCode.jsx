@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 import Login from "./Login";
-import ActivitiesPage from "../Pages/Activities/activities-page";
+import ActivitiesPage from "../../Activities/activities-page";
 
 class VerifyCode extends React.Component{
 
