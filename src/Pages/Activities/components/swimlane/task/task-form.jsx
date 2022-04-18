@@ -9,17 +9,17 @@ const TaskForm = ({
   setTaskList,
   description,
   setDescription,
-  showCreateTask,
-  setShowCreateTask,
+  showTaskForm,
+  setShowTaskForm,
   setShowAddTaskButton,
 }) => {
 
-  if (!showCreateTask) {
+  if (!showTaskForm) {
     return null
   }
 
   const showAddTaskButton = () => {
-    setShowCreateTask(false)
+    setShowTaskForm(false)
     setShowAddTaskButton("block")
   }
 
@@ -51,7 +51,7 @@ const TaskForm = ({
       ])
       setTask('')
       setDescription('')
-      setShowCreateTask(false)
+      setShowTaskForm(false)
       setShowAddTaskButton("block")
     }
   }

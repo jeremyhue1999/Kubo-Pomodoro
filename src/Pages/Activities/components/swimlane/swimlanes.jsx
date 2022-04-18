@@ -10,26 +10,25 @@ const Swimlanes = () => {
   const [taskList, setTaskList] = useState([
     {
       id: 1,
-      value: 'Todo Task',
-      desc: 'Todo Description',
+      value: 'todo',
+      desc: 'desc.',
       completed: false,
       doing: false,
-      subtasks: []
-      
+      subtasks: [
+        {
+          id: 21312,
+          value: 'subtask', 
+          completed: false
+        },
+      ]
     },
     {
       id: 2,
       value: 'Doing Task',
       desc: 'Doing Description',
       completed: false,
-      doing: false
-    },
-    {
-      id: 21,
-      value: 'Doing Task',
-      desc: 'Doing Description',
-      completed: true,
-      doing: false
+      doing: false,
+      subtasks: []
     },
     {
       id: 31,
@@ -40,12 +39,13 @@ const Swimlanes = () => {
       subtasks: []
     }
   ])
+  console.log(taskList)
   const [description, setDescription] = useState("")
-  const [showCreateTask, setShowCreateTask] = useState(false)
+  const [showTaskForm, setShowTaskForm] = useState(false)
   const [showAddTaskButton, setShowAddTaskButton] = useState("block")
 
   const hideAddTaskButton = () => {
-    setShowCreateTask(true)
+    setShowTaskForm(true)
     setShowAddTaskButton("hidden")
   }
   return (
@@ -75,8 +75,8 @@ const Swimlanes = () => {
             setTaskList={setTaskList}
             description={description}
             setDescription={setDescription}
-            showCreateTask={showCreateTask}
-            setShowCreateTask={setShowCreateTask}
+            showTaskForm={showTaskForm}
+            setShowTaskForm={setShowTaskForm}
             setShowAddTaskButton={setShowAddTaskButton}
           />
           <Button 

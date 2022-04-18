@@ -3,13 +3,22 @@ import Text from "../../../../../Components/text"
 import { VscChevronUp } from "react-icons/vsc"
 import { VscChevronDown } from "react-icons/vsc"
 
-const CreateSubtasks = ({ showCreateSubtasks, onClose }) => {
+const CreateSubtasks = ({ 
+  showCreateSubtasks, 
+  onClose, 
+  task, 
+  taskList,
+  taskID 
+}) => {
 
   if (!showCreateSubtasks) {
     return (
       <div className="my-4 hidden">
-        <Text className="text-white text-lg" value="Subtasks" />
-        <SubtaskForm />
+        <SubtaskForm
+          task={task} 
+          taskList={taskList}
+          taskID={taskID}
+        />
       </div>
     )
   }
@@ -24,7 +33,11 @@ const CreateSubtasks = ({ showCreateSubtasks, onClose }) => {
           onClick={onClose}
         />
       </div>
-      <SubtaskForm />
+      <SubtaskForm 
+        task={task} 
+        taskList={taskList}
+        taskID={taskID}
+      />
     </div>
   )
 }
