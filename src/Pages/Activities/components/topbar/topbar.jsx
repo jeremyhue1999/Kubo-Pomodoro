@@ -1,12 +1,12 @@
 import Button from '../../../../Components/button'
 import Text from '../../../../Components/text'
 import DateDropdown from '../date/date-dropdown'
-import 'react-calendar/dist/Calendar.css'
 import GeneralSettings from '../popup-settings/GeneralSettings'
 import ShareLink from '../popup-settings/ShareLink'
 import SoundSettings from '../popup-settings/SoundSettings'
 import TimerSettings from '../popup-settings/TimerSettings'
 import { ModalProvider, ModalContext, ModalRoot } from 'react-multi-modal';
+import { useState } from 'react'
 
 const Topbar = () => {
   const DATE_SAMPLE = [
@@ -20,7 +20,7 @@ const Topbar = () => {
     }
   ]
 
-  
+  const [showGeneral, setShowGeneral] = useState(false)
 
   return (
     <div className='flex items-center justify-between h-auto w-full bg-slate-800 p-4'>
@@ -41,7 +41,8 @@ const Topbar = () => {
                   <>
                     <Button 
                       className='bg-transparent text-white w-auto'
-                      value='General' 
+                      value='General'
+                      onClick={() => setShowGeneral(true)} 
                     />
                     <Button 
                       className='bg-transparent text-white w-auto'
@@ -65,6 +66,10 @@ const Topbar = () => {
           value='Sign Out'
         />
       </div>
+      <GeneralSettings
+        showGeneral={showGeneral} 
+        onClose={() => setShowGeneral(false)}
+      />
     </div>
   )
 }
