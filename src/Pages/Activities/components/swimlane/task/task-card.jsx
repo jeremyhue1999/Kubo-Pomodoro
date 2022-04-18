@@ -54,10 +54,6 @@ const TaskCard = ({
 		setEditDescription(false)
 	}
 
-	if (task.id !== taskID) {
-		
-	}
-
 	const showEditTaskInput = () => {
 		setEditTask(true)
 		setEditDescription(false)
@@ -170,7 +166,7 @@ const TaskCard = ({
 									required={true}
 								/>
 								<BsCheckSquare
-									className="cursor-pointer fill-green-500 hover:fill-green-700 " 
+									className="cursor-pointer fill-green-500 hover:fill-green-700 ml-2" 
 									size={42}
 									onClick={renameTaskFunctionClick}
 								/>

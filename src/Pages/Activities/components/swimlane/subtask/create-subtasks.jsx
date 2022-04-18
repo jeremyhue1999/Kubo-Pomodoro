@@ -12,19 +12,11 @@ const CreateSubtasks = ({
 }) => {
 
   if (!showCreateSubtasks) {
-    return (
-      <div className="my-4 hidden">
-        <SubtaskForm
-          task={task} 
-          taskList={taskList}
-          taskID={taskID}
-        />
-      </div>
-    )
+    return null
   }
   
   return (
-    <div className="my-4">
+    <div className="my-2">
       <div className="flex justify-between items-center">
         <Text className="text-white text-lg" value="Subtasks" />
         <VscChevronUp 

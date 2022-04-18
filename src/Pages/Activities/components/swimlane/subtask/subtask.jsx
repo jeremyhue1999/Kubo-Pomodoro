@@ -67,9 +67,9 @@ const Subtask = ({
   } 
 
   return (
-    <div className="flex">
+    <div className="flex w-full">
       {showEditInput
-      ? <div className="flex items-center my-4">
+      ? <div className="flex justify-between items-center my-4 w-full">
           <Input
             className="mr-2 placeholder:text-md w-full"
             name="Edit Subtask"
