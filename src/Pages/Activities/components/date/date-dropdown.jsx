@@ -21,7 +21,7 @@ const DateDropdown = ({
   return (
     <div>
       <div 
-        className={`${className} cursor-pointer w-56 m-2 p-2 flex items-center justify-center rounded bg-slate-100`}
+        className={`${className} cursor-pointer w-56 mx-2 p-2 flex items-center justify-center rounded bg-slate-100`}
         onClick={toggleModal} 
       >
         <Text 

@@ -135,7 +135,7 @@ const TaskCard = ({
 	}
 
 	return (
-		<div className="flex flex-col h-auto bg-slate-700 w-72 px-4 py-2 mb-4 rounded">
+		<div className="flex flex-col h-auto bg-slate-700 w-96 px-4 py-2 mb-4 rounded">
 			<div className={`cursor-${cursorType}`} onClick={hideAddTaskButton}>
 				<div className="flex flex-col gap-2">
 						{editTask 

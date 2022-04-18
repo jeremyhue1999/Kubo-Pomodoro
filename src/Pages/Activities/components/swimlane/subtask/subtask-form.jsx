@@ -7,7 +7,6 @@ import { VscAdd } from "react-icons/vsc"
 const SubtaskForm = () => {
   const [subtask, setSubtask] = useState("")
   const [subtaskList, setSubtaskList] = useState([])
-  console.log(subtaskList)
   const [renamedSubtask, setRenamedSubtask] = useState({
     id: null,
     value: '',

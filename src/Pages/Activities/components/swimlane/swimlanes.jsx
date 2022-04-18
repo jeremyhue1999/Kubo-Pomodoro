@@ -22,14 +22,14 @@ const Swimlanes = () => {
       value: 'Doing Task',
       desc: 'Doing Description',
       completed: false,
-      doing: true
+      doing: false
     },
     {
       id: 21,
       value: 'Doing Task',
       desc: 'Doing Description',
-      completed: false,
-      doing: true
+      completed: true,
+      doing: false
     },
     {
       id: 31,
@@ -41,8 +41,6 @@ const Swimlanes = () => {
     }
   ])
   const [description, setDescription] = useState("")
-  console.log(taskList)
-
   const [showCreateTask, setShowCreateTask] = useState(false)
   const [showAddTaskButton, setShowAddTaskButton] = useState("block")
 
@@ -51,10 +49,10 @@ const Swimlanes = () => {
     setShowAddTaskButton("hidden")
   }
   return (
-    <div className='w-auto h-auto bg-white drop-shadow-md m-6 p-6 pl-2 mt-20'>
-      <div className='flex justify-start gap-10 ml-10'>
+    <div className='w-max bg-white drop-shadow-md m-6 py-6 px-12'>
+      <div className='flex justify-start gap-12'>
         {/* TODO SWIMLANE */}
-        <div className='flex items-center flex-col w-72'>
+        <div className='flex items-center flex-col'>
           <Text 
             className='text-slate-900 text-2xl font-semibold mb-6'
             value='Todo'
@@ -87,26 +85,8 @@ const Swimlanes = () => {
             value="Add Task"
           />
         </div>
-        {/* DOING SWIMLANE */}
-        <div className='flex flex-col items-center w-72'>
-          <Text 
-            className='text-slate-900 text-2xl font-semibold mb-6'
-            value='Doing'
-          />
-          {taskList.map((task) => {
-            if (task.completed === false && task.doing === true) {
-              return <TaskCard 
-                task={task}
-                key={task.id}
-                taskList={taskList}
-                setTaskList={setTaskList}
-                setShowAddTaskButton={setShowAddTaskButton}
-              />
-            }})
-          }
-        </div>
         {/* DONE SWIMLANE */}
-        <div className='flex flex-col items-center w-96'>
+        <div className='flex flex-col items-center'>
           <Text 
             className='text-slate-900 text-2xl font-semibold mb-6'
             value='Completed'
