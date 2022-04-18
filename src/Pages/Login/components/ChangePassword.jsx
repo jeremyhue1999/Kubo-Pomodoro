@@ -35,7 +35,7 @@ class ChangePassword extends React.Component {
               <form className="mt-4 justify-center -space-y p-4">
                 <div className="rounded-md shadow-sm -space-y-px pb-4 sm:mr-auto md:mr-24 md:ml-24">
                   <div className="flex relative  h-48px group justify-center items-center">
-                    <label for="password" className="sr-only">
+                    <label htmlFor="password" className="sr-only">
                       Password
                     </label>
                     <input
@@ -46,24 +46,24 @@ class ChangePassword extends React.Component {
                       className="flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border border-transparent focus:border-gray-400 outline-none mt-4"
                       required
                     ></input>
-                    <span class="flex absolute right-0 bg-transparent rounded text-base text-gray-600 -mb-4 p-2">
+                    <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 -mb-4 p-2">
                       <FaLock className="text-black" />
                     </span>
                   </div>
 
                   <div className="flex relative  h-48px group justify-center items-center">
-                    <label for="password" className="sr-only">
+                    <label htmlFor="password" className="sr-only">
                       Password
                     </label>
                     <input
                       type="password"
                       name="password"
-                      id="password-new"
+                      id="password-new-confirm"
                       placeholder="Confirm New Password..."
                       className="flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border border-transparent focus:border-gray-400 outline-none mt-4"
                       required
                     ></input>
-                    <span class="flex absolute right-0 bg-transparent rounded text-base text-gray-600 -mb-4 p-2">
+                    <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 -mb-4 p-2">
                       <FaLock className="text-black" />
                     </span>
                   </div>

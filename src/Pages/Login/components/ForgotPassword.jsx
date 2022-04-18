@@ -21,7 +21,8 @@ class ForgotPassword extends React.Component {
             <div className="flex justify-center items-center p-5 rounded-t border-b dark:border-gray-600">
               <img
                 className="logo object-cover w-40 h-fit"
-                src={require("../../../images/logo-dark.png")}
+                src={require("../../../images/logo-dark.png")} 
+                alt="logo"
               ></img>
             </div>
 
@@ -34,7 +35,7 @@ class ForgotPassword extends React.Component {
               <form className="pt-6 justify-center -space-y">
                 <div className="rounded-md shadow-sm -space-y-px mr-12 ml-12 pb-4">
                   <div className="flex relative  h-48px group justify-center items-center">
-                    <label for="email" class="sr-only ">
+                    <label htmlFor="email" className="sr-only ">
                       Email
                     </label>
                     <input
@@ -45,7 +46,7 @@ class ForgotPassword extends React.Component {
                       className=" flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border border-transparent rounded focus:border-gray-400 outline-none mb-4"
                       required
                     ></input>
-                    <span class="flex absolute right-0 bg-transparent rounded text-base text-gray-600 mb-4 p-2">
+                    <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 mb-4 p-2">
                       <FaEnvelope className="text-black" />
                     </span>
                   </div>

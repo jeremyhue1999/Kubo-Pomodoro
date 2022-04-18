@@ -43,7 +43,7 @@ class Login extends React.Component {
               <form className="mt-4 -space-y">
                 <div className="rounded-md shadow-sm -space-y-px mr-12 ml-12">
                   <div className="flex relative  h-48px group justify-center items-center">
-                    <label for="username" class="sr-only ">
+                    <label htmlFor="username" className="sr-only ">
                       Username
                     </label>
                     <input
@@ -54,13 +54,13 @@ class Login extends React.Component {
                       className=" flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border border-transparent rounded focus:border-gray-400 outline-none "
                       required
                     ></input>
-                    <span class="flex absolute right-0 bg-transparent rounded text-base text-gray-600 p-2">
+                    <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 p-2">
                       <FaUserAlt className="text-black" />
                     </span>
                   </div>
 
                   <div className="flex relative  h-48px group justify-center items-center">
-                    <label for="password" className="sr-only">
+                    <label htmlFor="password" className="sr-only">
                       Password
                     </label>
                     <input
@@ -71,7 +71,7 @@ class Login extends React.Component {
                       className="flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border border-transparent focus:border-gray-400 outline-none mt-4"
                       required
                     ></input>
-                    <span class="flex absolute right-0 bg-transparent rounded text-base text-gray-600 -mb-4 p-2">
+                    <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 -mb-4 p-2">
                       <FaLock className="text-black" />
                     </span>
                   </div>
@@ -89,7 +89,7 @@ class Login extends React.Component {
                       className="w-full justify-center my-2 text-white bg-[#EB3C27] hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
                     >
                       <svg
-                        class="w-4 h-4 mr-2 -ml-1"
+                        className="w-4 h-4 mr-2 -ml-1"
                         aria-hidden="true"
                         focusable="false"
                         data-prefix="fab"

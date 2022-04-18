@@ -18,7 +18,7 @@ export default function ShareLink({ showShareLink, onClose }) {
                             Share Link
                         </h3>
                         <button type="button" className="text-white bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-toggle="defaultModal" onClick={onClose}>
-                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                         </button>
                     </div>
 
@@ -29,7 +29,7 @@ export default function ShareLink({ showShareLink, onClose }) {
                         <div>
                             <p className="text-md leading-relaxed font-bold">Invite</p>
                             <div className="flex flex-row gap-8 mt-2">
-                                <label for="email" class="sr-only ">Email</label>
+                                <label htmlFor="email" class="sr-only ">Email</label>
                                 <input type="email" 
                                 name="email" 
                                 id="email" 
@@ -49,7 +49,7 @@ export default function ShareLink({ showShareLink, onClose }) {
                         <div>
                             <p className="text-md leading-relaxed font-bold">Share your Link</p>
                             <div className="flex flex-row gap-8 mt-2">
-                                <label for="email" class="sr-only ">Email</label>
+                                <label htmlFor="email" class="sr-only ">Email</label>
                                 <input type="email" 
                                 name="email" 
                                 id="email" 

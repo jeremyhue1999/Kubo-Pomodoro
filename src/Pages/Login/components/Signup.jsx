@@ -38,7 +38,7 @@ class Signup extends React.Component {
               <form className="mt-4 -space-y sm:p-6 justify-center">
                 <div className="rounded-md shadow-sm -space-y-px md:mr-12 md:ml-12 sm:m-auto pb-4">
                   <div className="flex relative  h-48px group justify-center items-center">
-                    <label for="email" class="sr-only ">
+                    <label htmlFor="email" className="sr-only ">
                       Email
                     </label>
                     <input
@@ -49,13 +49,13 @@ class Signup extends React.Component {
                       className=" flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border border-transparent rounded focus:border-gray-400 outline-none mb-4"
                       required
                     ></input>
-                    <span class="flex absolute right-0 bg-transparent rounded text-base text-gray-600 mb-4 p-2">
+                    <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 mb-4 p-2">
                       <FaEnvelope className="text-black" />
                     </span>
                   </div>
 
                   <div className="flex relative  h-48px group justify-center items-center">
-                    <label for="username" class="sr-only ">
+                    <label htmlFor="username" className="sr-only ">
                       Username
                     </label>
                     <input
@@ -66,13 +66,13 @@ class Signup extends React.Component {
                       className=" flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border border-transparent rounded focus:border-gray-400 outline-none "
                       required
                     ></input>
-                    <span class="flex absolute right-0 bg-transparent rounded text-base text-gray-600 p-2">
+                    <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 p-2">
                       <FaUserAlt className="text-black" />
                     </span>
                   </div>
 
                   <div className="flex relative  h-48px group justify-center items-center">
-                    <label for="password" className="sr-only">
+                    <label htmlFor="password" className="sr-only">
                       Password
                     </label>
                     <input
@@ -83,13 +83,13 @@ class Signup extends React.Component {
                       className="flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border border-transparent focus:border-gray-400 outline-none mt-4"
                       required
                     ></input>
-                    <span class="flex absolute right-0 bg-transparent rounded text-base text-gray-600 -mb-4 p-2">
+                    <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 -mb-4 p-2">
                       <FaLock className="text-black" />
                     </span>
                   </div>
 
                   <div className="flex relative  h-48px group justify-center items-center">
-                    <label for="password" className="sr-only">
+                    <label htmlFor="password" className="sr-only">
                       Password
                     </label>
                     <input
@@ -100,7 +100,7 @@ class Signup extends React.Component {
                       className="flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border border-transparent focus:border-gray-400 outline-none mt-4"
                       required
                     ></input>
-                    <span class="flex absolute right-0 bg-transparent rounded text-base text-gray-600 -mb-4 p-2">
+                    <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 -mb-4 p-2">
                       <FaLock className="text-black" />
                     </span>
                   </div>

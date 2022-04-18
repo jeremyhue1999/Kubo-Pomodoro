@@ -1,5 +1,4 @@
 import React from "react";
-import ActivitiesPage from "../../activities-page";
 import { render } from "react-dom";
 import UpdatePasswordPopup from "./UpdatePasswordPopup";
 
@@ -9,10 +8,6 @@ export default function GeneralSettings({ showGeneral, onClose }) {
         return null
     }
     
-    /* const handleClose = () => {
-        render(<ActivitiesPage />, document.getElementById("root"));
-    } */
-
     const handleUpdatePassword = () => {
         render(<UpdatePasswordPopup />, document.getElementById("root"));
     }
@@ -30,7 +25,7 @@ export default function GeneralSettings({ showGeneral, onClose }) {
                             General Settings
                         </h3>
                         <button type="button" className="text-white bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-toggle="defaultModal" onClick={onClose}>
-                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                         </button>
                     </div>
 
@@ -53,7 +48,7 @@ export default function GeneralSettings({ showGeneral, onClose }) {
                             <form className="mt-4 space-y">
                                 <p className="text-xl text-left leading-relaxed">Account Settings</p>
                                 <div>
-                                    <label for="username" class="sr-only ">Username</label>
+                                    <label htmlFor="username" className="sr-only ">Username</label>
                                     <input type="username" 
                                     name="username" 
                                     id="username" 
@@ -62,7 +57,7 @@ export default function GeneralSettings({ showGeneral, onClose }) {
                                     ></input>
                                 </div>
                                 <div>
-                                    <label for="email" class="sr-only ">Email</label>
+                                    <label for="email" className="sr-only ">Email</label>
                                     <input type="email" 
                                     name="email" 
                                     id="email" 
