@@ -37,29 +37,26 @@ const Topbar = () => {
       </div>
       <div className='flex gap-10'>
         <div className='flex gap-4 text-md'>
-
-                  <>
-                    <Button 
-                      className='bg-transparent text-white w-auto'
-                      value='General'
-                      onClick={() => setShowGeneral(true)} 
-                    />
-                    <Button 
-                      className='bg-transparent text-white w-auto'
-                      value='Timer' 
-                      onClick={() => setShowTimer(true)} 
-                    />
-                    <Button 
-                      className='bg-transparent text-white w-auto'
-                      value='Sound and Notifications' 
-                      onClick={() => setShowSounds(true)} 
-                    />
-                    <Button 
-                      className='bg-transparent text-white w-auto'
-                      value='Share Link' 
-                      onClick={() => setShowShareLink(true)} 
-                    />
-                  </>
+          <Button 
+            className='bg-transparent text-white w-auto'
+            value='General'
+            onClick={() => setShowGeneral(true)} 
+          />
+          <Button 
+            className='bg-transparent text-white w-auto'
+            value='Timer' 
+            onClick={() => setShowTimer(true)} 
+          />
+          <Button 
+            className='bg-transparent text-white w-auto'
+            value='Sound and Notifications' 
+            onClick={() => setShowSounds(true)} 
+          />
+          <Button 
+            className='bg-transparent text-white w-auto'
+            value='Share Link' 
+            onClick={() => setShowShareLink(true)} 
+          />
         </div>
         <Button 
           className='w-48 m-2 p-2 rounded bg-slate-400 hover:bg-slate-900 text-slate-900 hover:text-white text-md place-self-center'
@@ -82,7 +79,6 @@ const Topbar = () => {
         showSounds={showSounds}
         onClose={() => setShowSounds(false)}
       />
-
     </div>
   )
 }
