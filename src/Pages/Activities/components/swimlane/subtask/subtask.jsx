@@ -89,7 +89,7 @@ const Subtask = ({
       
       : <div className="flex justify-between items-center w-full">
           <li 
-            className="my-4 text-xl text-slate-100 cursor-pointer"
+            className="my-4 text-xl text-white cursor-pointer"
             key={id} 
             onClick={clickSubtask}
           >
@@ -97,7 +97,7 @@ const Subtask = ({
           </li>
           <div className="flex">
             <AiOutlineEdit
-              className="cursor-pointer fill-slate-50 hover:fill-slate-400 " 
+              className="cursor-pointer fill-white hover:fill-gray-300 " 
               size={34}
               onClick={clickSubtask} 
             />

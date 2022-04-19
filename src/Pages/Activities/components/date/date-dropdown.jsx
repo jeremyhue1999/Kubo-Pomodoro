@@ -1,5 +1,7 @@
 import DateDropdownModal from "./date-dropdown-modal"
 import Text from "../../../../Components/text"
+import { BsCalendarPlus } from "react-icons/bs"
+import { VscChevronUp, VscChevronDown } from "react-icons/vsc"
 import { useState } from "react"
 
 const DateDropdown = ({
@@ -20,21 +22,35 @@ const DateDropdown = ({
 
   return (
     <div>
-      <div 
-        className={`${className} cursor-pointer w-56 mx-2 p-2 flex items-center justify-center rounded bg-slate-100`}
-        onClick={toggleModal} 
-      >
-        <Text 
-          className='text-slate-900 text-xl' 
-          value={firstDate}
+      <div className="flex items-center gap-1">
+        <div 
+          className='cursor-pointer flex justify-around items-center gap-2 w-56 mx-2 p-2 rounded bg-slate-100'
+          onClick={toggleModal} 
+        >
+          <Text 
+            className='text-slate-900 text-md' 
+            value={firstDate}
+          />
+          {showDropdownModal
+          ? <VscChevronUp
+              size={24}
+            />
+          : <VscChevronDown
+              size={24}
+            />
+          }
+        </div>
+        <BsCalendarPlus 
+          className="cursor-pointer fill-white hover:fill-gray-300"
+          size={30}
         />
       </div>
+      
       <DateDropdownModal
         array={array}
         showDropdownModal={showDropdownModal}
       />
     </div>
-    
   )
 }
 

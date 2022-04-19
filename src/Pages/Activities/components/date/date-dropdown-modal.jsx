@@ -11,7 +11,7 @@ const DateDropdownModal = ({
 
   return (
     <ul 
-      className="fixed flex flex-col z-50 w-56 mx-2 h-auto text-center border border-slate-600 text-slate-900 bg-slate-100" 
+      className="fixed flex flex-col z-50 w-56 mx-2 h-48 overflow-auto text-center border border-slate-600 text-slate-900 bg-slate-100" 
     >
       {array.map((item) => {
         return <Text

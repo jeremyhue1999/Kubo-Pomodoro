@@ -26,10 +26,10 @@ const Doing = ({
   }, doingTask)
 
   return (
-    <div className='w-full h-max bg-slate-800 drop-shadow-md m-6 ml-0 py-6 px-12 rounded'>
+    <div className='w-full h-max bg-slate-800 drop-shadow-lg m-6 ml-0 py-6 px-12 rounded'>
       <div className='flex justify-between items-center mb-12'>
         <Text
-          className='text-slate-100 text-center text-2xl font-semibold' 
+          className='text-white text-center text-2xl font-semibold' 
           value='In progress'
         />
         <div className='flex items-center'>
@@ -55,21 +55,21 @@ const Doing = ({
           />
         </div>
         <Text
-            className='text-slate-100 text-3xl ml-4' 
+            className='text-white text-3xl ml-4' 
             value='30:00'
           />
       </div>
       <Text
-        className='text-slate-100 text-3xl font-semibold' 
+        className='text-white text-3xl font-semibold' 
         value={value}
       /> 
       <Text
-        className='text-slate-100 text-lg break-all' 
+        className='text-white text-lg break-all' 
         value={desc}
       />
       <div className='mt-4'>
         <Text
-          className='text-slate-100 text-2xl' 
+          className='text-white text-2xl' 
           value='Subtasks'
         />
         {subtasks.map((e) => {

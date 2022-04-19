@@ -60,7 +60,7 @@ const Swimlanes = () => {
   }
   return (
     <div className='flex'>
-      <div className='w-max bg-white drop-shadow-md m-6 py-6 px-12 rounded'>
+      <div className='w-max bg-white drop-shadow-lg m-6 py-6 px-12 rounded'>
         <div className='flex justify-start gap-12'>
           {/* TODO SWIMLANE */}
           <div className='flex items-center flex-col w-96'>
@@ -71,7 +71,7 @@ const Swimlanes = () => {
             {taskList.map((task) => {
               if (task.completed === false && task.doing === false) {
                 return <TaskCard
-                  containerStyle='bg-slate-700'
+                  containerStyle='bg-slate-800'
                   textStyle='text-white'
                   task={task}
                   key={task.id}
@@ -107,7 +107,7 @@ const Swimlanes = () => {
             {taskList.map((task) => {
               if (task.completed === true && task.doing === false) {
                 return <TaskCard
-                  containerStyle='bg-slate-700'
+                  containerStyle='bg-slate-800'
                   textStyle='text-white'
                   task={task}
                   key={task.id}

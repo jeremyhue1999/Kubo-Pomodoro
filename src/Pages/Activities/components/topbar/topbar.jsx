@@ -16,7 +16,23 @@ const Topbar = () => {
     {
       id: 13,
       date: 'September 13, 2022'
-    }
+    },
+    {
+      id: 1232,
+      date: 'September 14, 2022'
+    },
+    {
+      id: 1238,
+      date: 'September 15, 2022'
+    },
+    {
+      id: 1323,
+      date: 'September 16, 2022'
+    },
+    {
+      id: 156,
+      date: 'September 17, 2022'
+    },
   ]
 
   const [showGeneral, setShowGeneral] = useState(false)
@@ -35,7 +51,7 @@ const Topbar = () => {
           array={DATE_SAMPLE}
         />
       </div>
-      <div className='flex gap-10'>
+      <div className='flex gap-8'>
         <div className='flex gap-4 text-md'>
           <Button 
             className='bg-transparent text-white w-auto'
@@ -59,7 +75,7 @@ const Topbar = () => {
           />
         </div>
         <Button 
-          className='w-48 m-2 p-2 rounded bg-slate-400 hover:bg-slate-900 text-slate-900 hover:text-white text-md place-self-center'
+          className='w-48 m-2 p-2 rounded bg-slate-400 text-slate-900 hover:bg-slate-300 text-md place-self-center'
           value='Sign Out'
         />
       </div>

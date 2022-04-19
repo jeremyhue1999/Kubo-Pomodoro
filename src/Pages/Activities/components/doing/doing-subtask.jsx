@@ -10,20 +10,20 @@ const DoingSubtask = ({
     <div className="flex justify-between items-center my-4 border border-slate-800 border-b-white pb-1">
       <div className="flex gap-2 mt-2">
       <Text
-        className='text-slate-100 text-lg mr-2'
+        className='text-white text-lg mr-2'
         value={value}
       />
       <AiOutlineEdit
-        className="cursor-pointer fill-slate-100" 
+        className="cursor-pointer fill-white hover:fill-gray-300" 
         size={32}
       />
       <VscDiffRemoved
-        className="cursor-pointer fill-red-600" 
+        className="cursor-pointer fill-red-600 hover:fill-red-500" 
         size={32}
       />
       </div>
       <Text
-        className="text-slate-100 text-xl" 
+        className="text-white text-xl" 
         value="15:00"
       />
       

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Input from "../../../../../Components/input"
 import Button from "../../../../../Components/button"
 import Text from "../../../../../Components/text"
@@ -150,7 +150,7 @@ const TaskCard = ({
 	}
 
 	return (
-		<div className="flex flex-col w-96 h-auto bg-slate-700 w-full px-4 py-2 mb-4 rounded">
+		<div className="flex flex-col w-96 h-auto bg-slate-800 w-full px-4 py-2 mb-4 rounded">
 			<div className={`cursor-${cursorType}`} onClick={hideAddTaskButton}>
 				<div className="flex flex-col gap-2">
 						{editTask 
@@ -173,20 +173,20 @@ const TaskCard = ({
 							</div> 
 						: <div>
 								{editMode 
-								? <div className="flex items-center w-full text-slate-100 text-xl break-all">
+								? <div className="flex items-center w-full text-white text-xl break-all">
 										<Text
 											className="w-full"
 											value={task.value}
 											onClick={showEditTaskInput}
 										/>
 										<AiOutlineEdit
-											className="ml-2 cursor-pointer place-self-start fill-slate-50 hover:fill-slate-400 " 
-											size={42}
+											className="ml-2 cursor-pointer place-self-start fill-white hover:fill-gray-300" 
+											size={34}
 											onClick={showEditTaskInput} 
 										/>
 									</div> 
 								: <Text
-										className="text-slate-100 text-xl" 
+										className="text-white text-xl" 
 										value={task.value}
 									/>
 								}
@@ -205,11 +205,11 @@ const TaskCard = ({
 									required={true}
 								/>
 								<Button 
-									className="cursor-pointer flex justify-center bg-slate-500 hover:bg-slate-600 rounded w-full"
+									className="cursor-pointer flex justify-center bg-slate-800 border-2 border-green-500 hover:border-green-700 rounded w-full"
 									onClick={renameTaskFunctionClick}
 									value=
 									{<VscCheck 
-											className="fill-white py-1" 
+											className="fill-green-500 hover:fill-green-700 py-1" 
 											size={32}
 									/>}
 								>
@@ -217,19 +217,19 @@ const TaskCard = ({
 							</div>
 						: <div>
 								{editMode 
-								? <div className="flex w-full text-slate-100 text-xl break-all">
+								? <div className="flex w-full text-white text-xl break-all">
 										<Text
 											className="w-full"
 											value={task.desc}
 											onClick={showEditDescriptionInput}
 										/>
 										<AiOutlineEdit
-											className="ml-2 cursor-pointer place-self-start fill-slate-50 hover:fill-slate-400" 
-											size={42}
+											className="ml-2 cursor-pointer place-self-start fill-white hover:fill-gray-300" 
+											size={34}
 											onClick={showEditDescriptionInput} 
 										/>
 									</div> 
-								: <div className="text-slate-100 text-xl">
+								: <div className="text-white text-xl">
 										<Text
 											className="truncate"
 											value={task.desc}
