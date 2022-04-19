@@ -20,9 +20,9 @@ class Signup extends React.Component {
           {/*Signup Header */}
           <div className="relative bg-white shadow-xl shadow-gray-600 dark:bg-[#EB3C27]">
             {/*Signup Header*/}
-            <div className="flex justify-center items-center p-5  dark:border-gray-600">
+            <div className="flex justify-center items-center p-2 dark:border-gray-600">
               <img
-                className="logo object-cover w-40 h-fit"
+                className="logo object-cover w-80 h-fit"
                 src={require("../../../images/logo-dark.png")}
                 alt="logo"
               ></img>
