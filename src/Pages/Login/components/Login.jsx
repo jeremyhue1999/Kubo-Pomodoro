@@ -25,9 +25,9 @@ class Login extends React.Component {
           {/*Login Header */}
           <div className="relative bg-white shadow shadow-gray-600 dark:bg-[#EB3C27]">
             {/*Login Header*/}
-            <div className="flex items-center justify-center p-2">
+            <div className="flex items-center justify-center">
               <img
-                className="logo object-cover w-80 h-auto"
+                className="logo object-cover w-40 h-auto"
                 src={require("../../../images/logo-dark.png")}
                 alt="logo"
               ></img>

@@ -18,9 +18,9 @@ class ChangePassword extends React.Component {
         <div className="relative p-4 max-w-2xl h-auto md:w-full sm:w-min md:h-auto">
           <div className="relative bg-white shadow-xl shadow-gray-600 dark:bg-[#EB3C27]">
             {/*Change Password Header*/}
-            <div className="flex justify-center items-center p-2 rounded-t border-b dark:border-gray-600">
+            <div className="flex justify-center items-center rounded-t border-b dark:border-gray-600">
               <img
-                className="logo object-cover w-80 h-fit"
+                className="logo object-cover w-40 h-fit"
                 src={require("../../../images/logo-dark.png")}
                 alt="logo"
               ></img>
