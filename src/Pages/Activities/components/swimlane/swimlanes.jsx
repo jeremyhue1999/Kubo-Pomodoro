@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import TaskForm from './task/task-form'
 import TodoTaskCard from './task/todo-task-card'
 import CompletedTaskCard from './task/completed-task-card'
@@ -62,6 +62,18 @@ const Swimlanes = () => {
       ]
     }
   ])
+  
+  const [test, setTest] = useState([])
+  console.log(test)
+
+  useEffect(() => {
+    if (test.length == 0) {
+      setTest(JSON.parse(localStorage.getItem('tasks')))
+    } else {
+      localStorage.setItem('tasks', JSON.stringify(taskList))
+    }
+  })
+
   const [description, setDescription] = useState("")
   const [showTaskForm, setShowTaskForm] = useState(false)
   const [showAddTaskButton, setShowAddTaskButton] = useState("block")

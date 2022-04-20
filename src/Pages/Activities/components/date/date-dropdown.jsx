@@ -49,7 +49,7 @@ const DateDropdown = () => {
   return (
       <div className="flex items-center gap-1">
         <button 
-          className='cursor-pointer flex justify-around items-center gap-2 w-56 mx-2 p-2 rounded bg-slate-100 peer hover:bg-green-300'
+          className='cursor-pointer flex justify-around items-center gap-2 w-56 mx-2 p-2 rounded bg-slate-100 peer'
           onClick={toggleModal} 
         >
           <Text 
@@ -58,11 +58,9 @@ const DateDropdown = () => {
           />
           {showDropdownModal
           ? <VscChevronUp
-              className="peer"
               size={24}
             />
           : <VscChevronDown
-              className="peer"
               size={24}
             />
           }
