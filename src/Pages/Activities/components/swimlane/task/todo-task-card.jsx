@@ -8,7 +8,7 @@ import { AiOutlineEdit } from "react-icons/ai"
 import { BsCheckSquare } from "react-icons/bs"
 import { VscCheck } from "react-icons/vsc"
 
-const TaskCard = ({ 
+const TodoTaskCard = ({ 
 	task,
 	taskList,
 	setTaskList,
@@ -251,4 +251,4 @@ const TaskCard = ({
 	)
 }
 
-export default TaskCard
+export default TodoTaskCard

@@ -9,33 +9,7 @@ import LogoDark from '../../../../images/logo-dark'
 import { useState } from 'react'
 
 const Topbar = () => {
-  const DATE_SAMPLE = [
-    {
-      id: 123,
-      date: 'September 12, 2022'
-    },
-    {
-      id: 13,
-      date: 'September 13, 2022'
-    },
-    {
-      id: 1232,
-      date: 'September 14, 2022'
-    },
-    {
-      id: 1238,
-      date: 'September 15, 2022'
-    },
-    {
-      id: 1323,
-      date: 'September 16, 2022'
-    },
-    {
-      id: 156,
-      date: 'September 17, 2022'
-    },
-  ]
-
+  
   const [showGeneral, setShowGeneral] = useState(false)
   const [showTimer, setShowTimer] = useState(false)
   const [showSounds, setShowSounds] = useState(false)
@@ -47,9 +21,7 @@ const Topbar = () => {
         <span className='ml-4 w-40'>
           <LogoDark />
         </span>
-        <DateDropdown
-          array={DATE_SAMPLE}
-        />
+        <DateDropdown />
       </div>
       <div className='flex gap-8'>
         <div className='flex gap-4 text-md'>

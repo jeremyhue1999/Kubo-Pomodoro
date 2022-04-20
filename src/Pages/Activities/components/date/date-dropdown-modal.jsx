@@ -1,10 +1,10 @@
 import Text from "../../../../Components/text"
 
-const DateDropdownModal = ({ 
+const DateDropdownModal = ({
+  array, 
   showDropdownModal,
-  array
 }) => {
-
+  
   if (!showDropdownModal) {
     return null
   }

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import TaskForm from './task/task-form'
-import TaskCard from './task/task-card'
+import TodoTaskCard from './task/todo-task-card'
+import CompletedTaskCard from './task/completed-task-card'
 import Button from "../../../../Components/button"
 import Text from '../../../../Components/text'
 import Doing from '../doing/doing'
@@ -44,10 +45,21 @@ const Swimlanes = () => {
     {
       id: 31,
       value: 'Completed Task',
-      desc: 'Completed Description',
+      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat et odit iste cupiditate commodi',
       completed: true,
       doing: false,
-      subtasks: []
+      subtasks: [
+        { 
+          id: 220,
+          value: 'subtask 3', 
+          completed: false
+        },
+        {
+          id: 320,
+          value: 'subtask 4', 
+          completed: false
+        },
+      ]
     }
   ])
   const [description, setDescription] = useState("")
@@ -70,7 +82,7 @@ const Swimlanes = () => {
             />
             {taskList.map((task) => {
               if (task.completed === false && task.doing === false) {
-                return <TaskCard
+                return <TodoTaskCard
                   containerStyle='bg-slate-800'
                   textStyle='text-white'
                   task={task}
@@ -106,12 +118,12 @@ const Swimlanes = () => {
             />
             {taskList.map((task) => {
               if (task.completed === true && task.doing === false) {
-                return <TaskCard
+                return <CompletedTaskCard
                   containerStyle='bg-slate-800'
                   textStyle='text-white'
                   task={task}
                   key={task.id}
-                  taskList={taskList}
+                  subtaskList={task.subtasks}
                   setTaskList={setTaskList}
                   setShowAddTaskButton={setShowAddTaskButton}
                 />
