@@ -1,11 +1,11 @@
+import { useState } from "react"
 import DateDropdownModal from "./date-dropdown-modal"
 import Text from "../../../../Components/text"
-import { BsCalendarPlus } from "react-icons/bs"
 import { VscChevronUp, VscChevronDown } from "react-icons/vsc"
-import { useState } from "react"
+import DateDropdownForm from "./date-dropdown-form"
+
 
 const DateDropdown = ({
-  className,
   array = []
   
 }) => {
@@ -40,10 +40,7 @@ const DateDropdown = ({
             />
           }
         </div>
-        <BsCalendarPlus 
-          className="cursor-pointer fill-white hover:fill-gray-300"
-          size={30}
-        />
+        <DateDropdownForm />
       </div>
       
       <DateDropdownModal

@@ -5,6 +5,7 @@ import GeneralSettings from '../popup-settings/GeneralSettings'
 import ShareLink from '../popup-settings/ShareLink'
 import SoundSettings from '../popup-settings/SoundSettings'
 import TimerSettings from '../popup-settings/TimerSettings'
+import LogoDark from '../../../../images/logo-dark'
 import { useState } from 'react'
 
 const Topbar = () => {
@@ -41,12 +42,11 @@ const Topbar = () => {
   const [showShareLink, setShowShareLink] = useState(false)
 
   return (
-    <div className='flex items-center justify-between h-auto w-full bg-slate-800 p-4'>
+    <div className='flex items-center justify-between h-auto w-full bg-slate-800 p-2'>
       <div className='flex items-center gap-6'>
-        <Text 
-          className='ml-3 text-white text-2xl'
-          value='Kubo-Pomodoro'
-        />
+        <span className='ml-4 w-40'>
+          <LogoDark />
+        </span>
         <DateDropdown
           array={DATE_SAMPLE}
         />

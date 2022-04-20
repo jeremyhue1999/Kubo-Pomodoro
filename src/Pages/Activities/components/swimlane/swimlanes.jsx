@@ -60,7 +60,7 @@ const Swimlanes = () => {
   }
   return (
     <div className='flex'>
-      <div className='w-max bg-white drop-shadow-lg m-6 py-6 px-12 rounded'>
+      <div className='w-max bg-white border border-gray-200 drop-shadow-lg m-6 py-6 px-12 rounded'>
         <div className='flex justify-start gap-12'>
           {/* TODO SWIMLANE */}
           <div className='flex items-center flex-col w-96'>
