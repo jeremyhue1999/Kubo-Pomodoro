@@ -3,19 +3,20 @@ import Text from "../../../../../Components/text"
 import { VscChevronUp } from "react-icons/vsc"
 import { VscChevronDown } from "react-icons/vsc"
 
-const CreateSubtasks = ({ showCreateSubtasks, onClose }) => {
+const CreateSubtasks = ({ 
+  showCreateSubtasks, 
+  onClose, 
+  task, 
+  taskList,
+  taskID 
+}) => {
 
   if (!showCreateSubtasks) {
-    return (
-      <div className="my-4 hidden">
-        <Text className="text-white text-lg" value="Subtasks" />
-        <SubtaskForm />
-      </div>
-    )
+    return null
   }
   
   return (
-    <div className="my-4">
+    <div className="my-2">
       <div className="flex justify-between items-center">
         <Text className="text-white text-lg" value="Subtasks" />
         <VscChevronUp 
@@ -24,7 +25,11 @@ const CreateSubtasks = ({ showCreateSubtasks, onClose }) => {
           onClick={onClose}
         />
       </div>
-      <SubtaskForm />
+      <SubtaskForm 
+        task={task} 
+        taskList={taskList}
+        taskID={taskID}
+      />
     </div>
   )
 }

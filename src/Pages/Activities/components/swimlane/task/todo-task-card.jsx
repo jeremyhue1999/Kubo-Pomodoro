@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Input from "../../../../../Components/input"
 import Button from "../../../../../Components/button"
 import Text from "../../../../../Components/text"
@@ -8,8 +8,9 @@ import { AiOutlineEdit } from "react-icons/ai"
 import { BsCheckSquare } from "react-icons/bs"
 import { VscCheck } from "react-icons/vsc"
 
-const TaskCard = ({ 
+const TodoTaskCard = ({ 
 	task,
+	taskList,
 	setTaskList,
 	setShowAddTaskButton }) => {
 
@@ -21,8 +22,10 @@ const TaskCard = ({
     id: null,
     value: '',
 		desc: '',
-    completed: false
+    completed: false,
+		doing: false
   })
+	const [taskID, setTaskID] = useState(0)
 
 	let cursorType = ""
 	if (!showCreateSubtasks) {
@@ -31,10 +34,16 @@ const TaskCard = ({
 		cursorType = "auto"
 	}
 
+	const resetID = () => {
+		showAddTaskButton() 
+		setTaskID('')
+	}
+
 	const hideAddTaskButton = () => {
 		setShowCreateSubtasks(true)
 		setShowAddTaskButton("hidden")
 		setEditMode(true)
+		setTaskID(task.id)
 	}
 
 	const showAddTaskButton = () => {
@@ -68,7 +77,8 @@ const TaskCard = ({
 						id: null,
 						value: '',
 						desc: '',
-						completed: false
+						completed: false,
+						doing: false
 					})
 					setEditTask(false)
 				}
@@ -90,7 +100,8 @@ const TaskCard = ({
 					id: null,
 					value: '',
 					desc: '',
-					completed: false
+					completed: false,
+      		doing: false
 				})
 				setEditTask(false)
 			}
@@ -103,7 +114,8 @@ const TaskCard = ({
 					id: null,
 					value: '',
 					desc: '',
-					completed: false
+					completed: false,
+      		doing: false
 				})
 				setEditDescription(false)
 			}
@@ -115,7 +127,9 @@ const TaskCard = ({
       id: task.id,
       value: e.target.value,
 			desc: task.desc,
-      completed: false
+      completed: false,
+			doing: false
+			
     })
 	}
 	
@@ -124,7 +138,8 @@ const TaskCard = ({
       id: task.id,
       value: task.value,
 			desc: e.target.value,
-      completed: false
+      completed: false,
+			doing: false
     })
 	}
 	
@@ -135,7 +150,7 @@ const TaskCard = ({
 	}
 
 	return (
-		<div className="flex flex-col h-auto bg-slate-700 w-72 px-4 py-2 mb-4 rounded">
+		<div className="flex flex-col w-96 h-auto bg-slate-800 w-full px-4 py-2 mb-4 rounded">
 			<div className={`cursor-${cursorType}`} onClick={hideAddTaskButton}>
 				<div className="flex flex-col gap-2">
 						{editTask 
@@ -151,27 +166,27 @@ const TaskCard = ({
 									required={true}
 								/>
 								<BsCheckSquare
-									className="cursor-pointer fill-green-500 hover:fill-green-700 " 
+									className="cursor-pointer fill-green-500 hover:fill-green-700 ml-2" 
 									size={42}
 									onClick={renameTaskFunctionClick}
 								/>
 							</div> 
 						: <div>
 								{editMode 
-								? <div className="flex justify-between">
+								? <div className="flex items-center w-full text-white text-xl break-all">
 										<Text
-											className="text-slate-100 text-xl" 
+											className="w-full"
 											value={task.value}
 											onClick={showEditTaskInput}
 										/>
 										<AiOutlineEdit
-											className="cursor-pointer fill-slate-50 hover:fill-slate-400 " 
-											size={32}
+											className="ml-2 cursor-pointer place-self-start fill-white hover:fill-gray-300" 
+											size={34}
 											onClick={showEditTaskInput} 
 										/>
 									</div> 
 								: <Text
-										className="text-slate-100 text-xl" 
+										className="text-white text-xl" 
 										value={task.value}
 									/>
 								}
@@ -190,46 +205,50 @@ const TaskCard = ({
 									required={true}
 								/>
 								<Button 
-									className="cursor-pointer flex justify-center bg-slate-500 hover:bg-slate-600 rounded w-full"
+									className="cursor-pointer flex justify-center bg-slate-800 border-2 border-green-500 hover:border-green-700 rounded w-full"
 									onClick={renameTaskFunctionClick}
 									value=
 									{<VscCheck 
-										className="fill-white py-1" 
-										size={32}
+											className="fill-green-500 hover:fill-green-700 py-1" 
+											size={32}
 									/>}
 								>
 								</Button>
 							</div>
-
 						: <div>
 								{editMode 
-								? <div className="flex justify-between">
+								? <div className="flex w-full text-white text-xl break-all">
 										<Text
-											className="text-slate-100 text-xl" 
+											className="w-full"
 											value={task.desc}
 											onClick={showEditDescriptionInput}
 										/>
 										<AiOutlineEdit
-											className="cursor-pointer fill-slate-50 hover:fill-slate-400 " 
-											size={32}
+											className="ml-2 cursor-pointer place-self-start fill-white hover:fill-gray-300" 
+											size={34}
 											onClick={showEditDescriptionInput} 
 										/>
 									</div> 
-								: <Text
-										className="text-slate-100 text-xl" 
-										value={task.desc}
-									/>
+								: <div className="text-white text-xl">
+										<Text
+											className="truncate"
+											value={task.desc}
+										/>
+									</div>	
 								}
 							</div>
 						}
 				</div>
 			</div>
 			<CreateSubtasks 
+				task={task}
+				taskList={taskList}
 				showCreateSubtasks={showCreateSubtasks}
-				onClose={showAddTaskButton}
+				onClose={resetID}
+				taskID={taskID}
 			/>
 		</div>
 	)
 }
 
-export default TaskCard
+export default TodoTaskCard

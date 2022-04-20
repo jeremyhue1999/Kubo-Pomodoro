@@ -9,17 +9,17 @@ const TaskForm = ({
   setTaskList,
   description,
   setDescription,
-  showCreateTask,
-  setShowCreateTask,
+  showTaskForm,
+  setShowTaskForm,
   setShowAddTaskButton,
 }) => {
 
-  if (!showCreateTask) {
+  if (!showTaskForm) {
     return null
   }
 
   const showAddTaskButton = () => {
-    setShowCreateTask(false)
+    setShowTaskForm(false)
     setShowAddTaskButton("block")
   }
 
@@ -51,13 +51,13 @@ const TaskForm = ({
       ])
       setTask('')
       setDescription('')
-      setShowCreateTask(false)
+      setShowTaskForm(false)
       setShowAddTaskButton("block")
     }
   }
 
   return (
-    <div className="flex flex-col bg-slate-700 px-3 py-2 mb-4 rounded">
+    <div className="flex flex-col w-96 bg-slate-800 px-3 py-2 mb-4 rounded">
       <form className="flex flex-col content-center w-full">
         <Input 
           className="my-1 placeholder:text-lg"

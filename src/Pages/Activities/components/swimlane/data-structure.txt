@@ -1,0 +1,42 @@
+Accounts Database
+
+ObjectId
+user_name
+password
+first_name
+last_name
+email
+
+Timer Settings Database
+
+ObjectId
+work_time
+short_break
+long_break
+long_break_interval
+
+Date Database
+
+ObjectId
+date
+
+Tasks Database
+
+ObjectId
+task_name
+task_desc
+doing
+completed
+paused
+subtasks: [
+  {
+    ObjectId
+    subtask_name
+    completed
+    paused
+  }
+]
+
+
+
+
