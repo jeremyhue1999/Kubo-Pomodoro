@@ -1,5 +1,4 @@
 import { useState } from "react"
-import DateDropdownModal from "./date-dropdown-modal"
 import Text from "../../../../Components/text"
 import { VscChevronUp, VscChevronDown } from "react-icons/vsc"
 import DateDropdownForm from "./date-dropdown-form"
@@ -35,20 +34,22 @@ const DateDropdown = () => {
   const firstDate = DATE_SAMPLE[0].date
 
   const [showDropdownModal, setShowDropdownModal] = useState(false)
+  const [height, setHeight] = useState('h-0')
 
   const toggleModal = () => {
     if (showDropdownModal) {
+      setHeight('h-0')
       setShowDropdownModal(false)
     } else {
+      setHeight('h-48')
       setShowDropdownModal(true)
     }
   }
 
   return (
-    <div>
       <div className="flex items-center gap-1">
-        <div 
-          className='cursor-pointer flex justify-around items-center gap-2 w-56 mx-2 p-2 rounded bg-slate-100'
+        <button 
+          className='cursor-pointer flex justify-around items-center gap-2 w-56 mx-2 p-2 rounded bg-slate-100 peer hover:bg-green-300'
           onClick={toggleModal} 
         >
           <Text 
@@ -57,21 +58,28 @@ const DateDropdown = () => {
           />
           {showDropdownModal
           ? <VscChevronUp
+              className="peer"
               size={24}
             />
           : <VscChevronDown
+              className="peer"
               size={24}
             />
           }
-        </div>
+        </button>
         <DateDropdownForm />
+        <ul 
+          className={`fixed flex flex-col z-50 w-56 mx-2 overflow-auto text-center border border-slate-600 text-slate-900 bg-slate-100 top-20 ${height} peer-focus:${height} peer:transition ease-out duration-500`} 
+        >
+          {DATE_SAMPLE.map((item) => {
+            return <Text
+              className="w-full cursor-pointer text-md py-2 border border-slate-600 hover:border-slate-600 hover:bg-slate-600 font-semibold"
+              key={item.id}
+              value={item.date}
+            />
+          })}
+        </ul>
       </div>
-      
-      <DateDropdownModal
-        array={DATE_SAMPLE}
-        showDropdownModal={showDropdownModal}
-      />
-    </div>
   )
 }
 
