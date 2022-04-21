@@ -15,29 +15,24 @@ class Signup extends React.Component {
     };
 
     return (
-      <div className="min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none">
-        <div className="relative p-4 max-w-2xl h-auto md:w-full sm:w-min md:h-auto">
-          {/*Signup Header */}
-          <div className="relative bg-white shadow-xl shadow-gray-600 dark:bg-[#EB3C27]">
-            {/*Signup Header*/}
-            <div className="flex justify-center items-center dark:border-gray-600">
-              <img
-                className="logo object-cover w-40 h-fit"
+      <div className="flex flex-col items-center justify-center w-screen h-screen bg-[#800020] ">
+
+            <img
+                className="logo object-scale-down w-40 h-fit mb-4 cursor-pointer"
                 src={require("../../../images/logo-dark.png")}
                 alt="logo"
-              ></img>
-            </div>
+            />
 
             {/*Content*/}
-            <div className="flex flex-col bg-gray-300">
+            <div className="flex flex-col bg-white rounded-2xl shadow-md shadow-white w-100">
               <h1 className=" text-4xl font-bold text-black text-center mt-4">
                 SIGNUP
               </h1>
 
               {/*Signup Form*/}
-              <form className="mt-4 -space-y sm:p-6 justify-center">
-                <div className="rounded-md shadow-sm -space-y-px md:mr-12 md:ml-12 sm:m-auto pb-4">
-                  <div className="flex relative  h-48px group justify-center items-center">
+              <form className="-space-y p-6 justify-center">
+                <div className="-space-y-px ">
+                  <div className="flex relative h-48px group justify-center items-center">
                     <label htmlFor="email" className="sr-only ">
                       Email
                     </label>
@@ -46,7 +41,7 @@ class Signup extends React.Component {
                       name="email"
                       id="email"
                       placeholder="Email Address"
-                      className=" flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border border-transparent rounded focus:border-gray-400 outline-none mb-4"
+                      className=" flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border-2 border-gray-300 rounded focus:border-gray-400 outline-none mb-4"
                       required
                     ></input>
                     <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 mb-4 p-2">
@@ -63,7 +58,7 @@ class Signup extends React.Component {
                       name="username"
                       id="username"
                       placeholder="Username"
-                      className=" flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border border-transparent rounded focus:border-gray-400 outline-none "
+                      className=" flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border-2 border-gray-300 rounded focus:border-gray-400 outline-none "
                       required
                     ></input>
                     <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 p-2">
@@ -80,7 +75,7 @@ class Signup extends React.Component {
                       name="password"
                       id="password"
                       placeholder="Password..."
-                      className="flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border border-transparent focus:border-gray-400 outline-none mt-4"
+                      className="flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border-2 border-gray-300focus:border-gray-400 outline-none mt-4"
                       required
                     ></input>
                     <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 -mb-4 p-2">
@@ -88,7 +83,7 @@ class Signup extends React.Component {
                     </span>
                   </div>
 
-                  <div className="flex relative  h-48px group justify-center items-center">
+                  <div className="flex relative h-48px group justify-center items-center">
                     <label htmlFor="password" className="sr-only">
                       Password
                     </label>
@@ -96,8 +91,8 @@ class Signup extends React.Component {
                       type="password"
                       name="password"
                       id="confirm-password"
-                      placeholder="Password..."
-                      className="flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border border-transparent focus:border-gray-400 outline-none mt-4"
+                      placeholder="Confirm Password..."
+                      className="flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border-2 border-gray-300 rounded focus:border-gray-400 outline-none mt-4"
                       required
                     ></input>
                     <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 -mb-4 p-2">
@@ -108,14 +103,14 @@ class Signup extends React.Component {
                   <div className="pt-4">
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-[#087830] hover:bg-white hover:text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55"
+                      className="w-full justify-center my-2 text-white bg-[#087830] hover:bg-white hover:text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center"
                       onClick={handleSignup}
                     >
                       Signup
                     </button>
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-[#EB3C27] hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55"
+                      className="w-full justify-center my-2 text-white bg-[#EB3C27] hover:bg-white hover:text-black focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
                       onClick={handleCancel}
                     >
                       Cancel
@@ -125,8 +120,7 @@ class Signup extends React.Component {
               </form>
             </div>
           </div>
-        </div>
-      </div>
+       
     );
   }
 }

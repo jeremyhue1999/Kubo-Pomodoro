@@ -20,22 +20,19 @@ class Login extends React.Component {
     };
 
     return (
-      <div className="min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none">
-        <div className="relative p-4 max-w-2xl h-auto md:w-full sm:w-min md:h-auto">
-          {/*Login Header */}
-          <div className="relative bg-white shadow shadow-gray-600 dark:bg-[#EB3C27]">
-            {/*Login Header*/}
-            <div className="flex items-center justify-center">
-              <img
-                className="logo object-cover w-40 h-auto"
+      
+      
+        <div className="flex flex-col flex-wrap items-center justify-center w-screen h-screen bg-[#800020] ">
+          
+            <img
+                className="logo object-scale-down w-40 h-fit mb-4 cursor-pointer"
                 src={require("../../../images/logo-dark.png")}
                 alt="logo"
-              ></img>
-            </div>
-
+            />
+          
             {/*Content*/}
-            <div className="flex flex-col bg-gray-300">
-              <h1 className=" text-4xl font-bold text-black text-center mt-4">
+            <div className="flex flex-col bg-white rounded-2xl shadow-md text-black shadow-white w-100">
+              <h1 className=" text-4xl font-bold  text-center mt-4">
                 LOGIN
               </h1>
 
@@ -132,9 +129,9 @@ class Login extends React.Component {
                 </div>
               </form>
             </div>
-          </div>
+          
         </div>
-      </div>
+      
     );
   }
 }

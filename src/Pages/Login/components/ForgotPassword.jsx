@@ -14,20 +14,15 @@ class ForgotPassword extends React.Component {
     };
 
     return (
-      <div className="min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none">
-        <div className="relative p-4 max-w-2xl h-auto md:w-full sm:w-min md:h-auto">
-          <div className="relative bg-white shadow-xl shadow-gray-600 dark:bg-[#EB3C27]">
-            {/*Forgot Password Header*/}
-            <div className="flex justify-center items-center dark:border-gray-600">
-              <img
-                className="logo object-cover w-40 h-fit"
-                src={require("../../../images/logo-dark.png")} 
+      <div className="flex flex-col flex-wrap items-center justify-center md:w-screen h-screen bg-[#800020]">
+            <img
+                className="logo object-cover w-40 h-fit mb-4 cursor-pointer"
+                src={require("../../../images/logo-dark.png")}
                 alt="logo"
-              ></img>
-            </div>
+            />
 
             {/*Content*/}
-            <div className="flex flex-col bg-gray-300">
+            <div className="flex flex-col bg-white rounded-2xl shadow-md shadow-white w-auto p-2">
               <h1 className=" text-4xl font-bold text-black text-center mt-4">
                 FORGOT PASSWORD
               </h1>
@@ -43,7 +38,7 @@ class ForgotPassword extends React.Component {
                       name="email"
                       id="email"
                       placeholder="Email Address"
-                      className=" flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border border-transparent rounded focus:border-gray-400 outline-none mb-4"
+                      className=" flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border-2 border-gray-300 rounded focus:border-gray-400 outline-none mb-4"
                       required
                     ></input>
                     <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 mb-4 p-2">
@@ -71,8 +66,6 @@ class ForgotPassword extends React.Component {
               </form>
             </div>
           </div>
-        </div>
-      </div>
     );
   }
 }
