@@ -6,7 +6,22 @@ import Button from "../../../../Components/button"
 import Text from '../../../../Components/text'
 import Doing from '../doing/doing'
 
+import { collection, addDoc } from 'firebase/firestore'
+import { db } from '../../../../firebase-config'
+
 const Swimlanes = () => {
+  const userCollectionRef = collection (db, "Tasks") 
+
+  const addTaskObject = async () => {
+    await addDoc(userCollectionRef, {
+      id: 1,
+      value: 'todo',
+      desc: 'desc.',
+      completed: false,
+      doing: false,
+    })
+  }
+
   const [task, setTask] = useState("")
   const [taskList, setTaskList] = useState([
     {
@@ -84,6 +99,10 @@ const Swimlanes = () => {
   }
   return (
     <div className='flex'>
+      <Button
+        value='Test'
+        onClick={addTaskObject}
+      />
       <div className='w-max bg-white border border-gray-200 drop-shadow-lg m-6 py-6 px-12 rounded'>
         <div className='flex justify-start gap-12'>
           {/* TODO SWIMLANE */}
