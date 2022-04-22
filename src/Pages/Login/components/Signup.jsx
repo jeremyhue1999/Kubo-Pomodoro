@@ -24,7 +24,7 @@ class Signup extends React.Component {
             />
 
             {/*Content*/}
-            <div className="flex flex-col bg-white rounded-2xl shadow-md shadow-white w-100">
+            <div className="flex flex-col bg-[#F5F5DC] rounded-2xl shadow-md shadow-white w-100">
               <h1 className=" text-4xl font-bold text-black text-center mt-4">
                 SIGNUP
               </h1>
@@ -103,14 +103,14 @@ class Signup extends React.Component {
                   <div className="pt-4">
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-[#087830] hover:bg-white hover:text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center"
+                      className="w-full justify-center my-2 text-white bg-[#2F2440] hover:bg-[#800020] hover:text-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center"
                       onClick={handleSignup}
                     >
                       Signup
                     </button>
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-[#EB3C27] hover:bg-white hover:text-black focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+                      className="w-full justify-center my-2 text-white bg-[#FF2511] hover:bg-[#800020] hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
                       onClick={handleCancel}
                     >
                       Cancel

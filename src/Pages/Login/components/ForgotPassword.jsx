@@ -22,13 +22,13 @@ class ForgotPassword extends React.Component {
             />
 
             {/*Content*/}
-            <div className="flex flex-col bg-white rounded-2xl shadow-md shadow-white w-auto p-2">
+            <div className="flex flex-col bg-[#F5F5DC] rounded-2xl shadow-md shadow-white w-auto p-2 ">
               <h1 className=" text-4xl font-bold text-black text-center mt-4">
                 FORGOT PASSWORD
               </h1>
 
               <form className="pt-6 justify-center -space-y">
-                <div className="rounded-md shadow-sm -space-y-px mr-12 ml-12 pb-4">
+                <div className="-space-y-px mr-6 ml-6">
                   <div className="flex relative  h-48px group justify-center items-center">
                     <label htmlFor="email" className="sr-only ">
                       Email
@@ -49,14 +49,14 @@ class ForgotPassword extends React.Component {
                   <div>
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-[#087830] hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mb-2 "
+                      className="w-full justify-center my-2 text-white bg-[#2F2440] hover:bg-[#800020] hover:text-white focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center   mb-2 "
                       onClick={handleSendCode}
                     >
                       Send Code
                     </button>
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-[#EB3C27] hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mb-2"
+                      className="w-full justify-center my-2 text-white bg-[#FF2511] hover:bg-[#800020] hover:text-white focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center   mb-2"
                       onClick={handleCancel}
                     >
                       Cancel

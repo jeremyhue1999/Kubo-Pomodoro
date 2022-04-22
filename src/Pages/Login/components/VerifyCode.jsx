@@ -22,7 +22,7 @@ class VerifyCode extends React.Component {
             />
 
             {/*Content*/}
-            <div className="flex flex-col bg-white rounded-2xl shadow-md shadow-white w-auto p-2">
+            <div className="flex flex-col bg-[#F5F5DC] rounded-2xl shadow-md shadow-white w-auto p-2">
               <h1 className=" text-4xl font-bold text-black text-center mt-4">
                 VERIFY CODE
               </h1>
@@ -30,7 +30,7 @@ class VerifyCode extends React.Component {
               <form className="mt-4 justify-center w-full p-6">
                 <div className=" ">
                   <div>
-                    <label for="code" class="sr-only">
+                    <label htmlFor="code" class="sr-only">
                       Code
                     </label>
                     <input
@@ -47,7 +47,7 @@ class VerifyCode extends React.Component {
                     <button
                       type="button"
                       id="verify-login"
-                      className="w-full justify-center my-2 text-white bg-[#087830] hover:bg-white hover:text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mt-6 mb-2"
+                      className="w-full justify-center my-2 text-white bg-[#2F2440] hover:bg-[#800020] hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mt-6 mb-2"
                       onClick={handleVerify}
                     >
                       Verify
@@ -55,7 +55,7 @@ class VerifyCode extends React.Component {
                     <button
                       type="button"
                       id="cancel-login"
-                      className="w-full justify-center my-2 text-white bg-[#EB3C27] border-white hover:bg-white hover:text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mb-2"
+                      className="w-full justify-center my-2 text-white bg-[#FF2511] border-white hover:bg-[#800020] hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mb-2"
                       onClick={handleCancel}
                     >
                       Cancel

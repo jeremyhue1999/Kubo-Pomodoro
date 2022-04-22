@@ -31,7 +31,7 @@ class Login extends React.Component {
             />
           
             {/*Content*/}
-            <div className="flex flex-col bg-white rounded-2xl shadow-md text-black shadow-white w-100">
+            <div className="flex flex-col bg-[#F5F5DC] rounded-2xl shadow-md text-black shadow-white w-100">
               <h1 className=" text-4xl font-bold  text-center mt-4">
                 LOGIN
               </h1>
@@ -48,7 +48,7 @@ class Login extends React.Component {
                       name="username"
                       id="username"
                       placeholder="Username"
-                      className=" flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border border-transparent rounded focus:border-gray-400 outline-none "
+                      className=" flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border-2 border-gray-300 rounded focus:border-gray-400 outline-none "
                       required
                     ></input>
                     <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 p-2">
@@ -65,7 +65,7 @@ class Login extends React.Component {
                       name="password"
                       id="password"
                       placeholder="Password..."
-                      className="flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border border-transparent focus:border-gray-400 outline-none mt-4"
+                      className="flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border-2 border-gray-300 focus:border-gray-400 outline-none mt-4"
                       required
                     ></input>
                     <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 -mb-4 p-2">
@@ -76,14 +76,14 @@ class Login extends React.Component {
                   <div>
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-[#087830] hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mt-4 mb-2"
+                      className="w-full justify-center my-2 text-white bg-[#2F2440] hover:bg-[#800020] hover:text-white focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mt-4 mb-2"
                       onClick={login}
                     >
                       Login
                     </button>
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-[#EB3C27] hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
+                      className="w-full justify-center my-2 text-white bg-[#2F2440] hover:bg-[#800020] hover:text-white focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
                     >
                       <svg
                         className="w-4 h-4 mr-2 -ml-1"
@@ -120,7 +120,7 @@ class Login extends React.Component {
                     <button
                       type="button"
                       id="signup-button"
-                      className="w-full justify-center my-2 text-white bg-[#087830] hover:bg-white hover:text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mb-2"
+                      className="w-full justify-center my-2 text-white bg-[#2F2440] hover:bg-[#800020] hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mb-2"
                       onClick={handleSignup}
                     >
                       Sign Up
