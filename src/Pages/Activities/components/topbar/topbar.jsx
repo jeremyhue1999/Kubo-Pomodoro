@@ -1,5 +1,4 @@
 import Button from '../../../../Components/button'
-import Text from '../../../../Components/text'
 import DateDropdown from '../date/date-dropdown'
 import GeneralSettings from '../popup-settings/GeneralSettings'
 import ShareLink from '../popup-settings/ShareLink'

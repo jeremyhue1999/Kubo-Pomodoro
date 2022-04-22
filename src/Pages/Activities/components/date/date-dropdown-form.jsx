@@ -24,7 +24,7 @@ const DateDropdownForm = () => {
         className="cursor-pointer fill-white hover:fill-gray-300"
         size={30}
         onClick={() => {
-          if (inputType == 'date') {
+          if (inputType === 'date') {
             setInputType('hidden')
             setFormDisplay('hidden')
           } else {

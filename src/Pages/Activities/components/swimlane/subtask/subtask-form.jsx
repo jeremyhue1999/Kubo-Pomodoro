@@ -11,7 +11,7 @@ const SubtaskForm = ({ taskList, taskID }) => {
     value: '', 
     completed: false
   })
-  const currentTask = taskList.find((e) => e.id == taskID)
+  const currentTask = taskList.find((e) => e.id === taskID)
   const [subtaskList, setSubtaskList] = useState()
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const SubtaskForm = ({ taskList, taskID }) => {
     } else {
       setSubtaskList(currentTask.subtasks)
     }
-  })
+  }, [currentTask])
   
   const changeHandler = e => {
     /* Adds a Subtask */

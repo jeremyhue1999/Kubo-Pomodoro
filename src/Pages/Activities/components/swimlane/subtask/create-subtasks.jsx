@@ -1,7 +1,6 @@
 import SubtaskForm from "./subtask-form"
 import Text from "../../../../../Components/text"
 import { VscChevronUp } from "react-icons/vsc"
-import { VscChevronDown } from "react-icons/vsc"
 
 const CreateSubtasks = ({ 
   showCreateSubtasks, 

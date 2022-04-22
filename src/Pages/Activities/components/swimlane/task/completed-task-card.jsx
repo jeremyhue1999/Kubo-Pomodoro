@@ -1,12 +1,5 @@
 import { useState } from "react"
-import Input from "../../../../../Components/input"
-import Button from "../../../../../Components/button"
 import Text from "../../../../../Components/text"
-import CreateSubtasks from "../subtask/create-subtasks"
-import TextArea from "../../../../../Components/textarea"
-import { AiOutlineEdit } from "react-icons/ai"
-import { BsCheckSquare } from "react-icons/bs"
-import { VscCheck } from "react-icons/vsc"
 
 const CompletedTaskCard = ({
   task,

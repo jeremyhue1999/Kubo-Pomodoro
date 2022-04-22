@@ -78,11 +78,11 @@ const Swimlanes = () => {
   console.log(test)
 
   useEffect(() => {
-    if (test.length == 0) {
+    if (test.length === 0) {
       localStorage.setItem('tasks', JSON.stringify(taskList))
       setTest(JSON.parse(localStorage.getItem('tasks')))
     }
-  }, [test, setTest])
+  }, [test, taskList])
 
   const [description, setDescription] = useState("")
   const [showTaskForm, setShowTaskForm] = useState(false)

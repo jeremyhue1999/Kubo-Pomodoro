@@ -3,17 +3,13 @@ import Text from '../../../../Components/text'
 import DoingSubtask from './doing-subtask'
 import { BsStopFill, BsPlayFill, BsPauseFill, BsSkipEndFill } from 'react-icons/bs'
 
-const Doing = ({ 
-  taskList,
-  setTaskList,
-  setShowAddTaskButton,
-}) => {
+const Doing = ({ taskList }) => {
   const [playIcon, setPlayIcon] = useState(true)
   const [value, setValue] = useState('')
   const [desc, setDesc] = useState('')
   const [subtasks, setSubtasks] = useState([])
 
-  const doingTask = taskList.find((e) => e.doing == true && e.completed == false)
+  const doingTask = taskList.find((e) => e.doing === true && e.completed === false)
   useEffect(() => {
     if (doingTask == null) {
       setValue('N/A')
@@ -23,7 +19,7 @@ const Doing = ({
       setDesc(doingTask.desc)
       setSubtasks(doingTask.subtasks)
     }
-  })
+  }, [doingTask])
 
   return (
     <div className='w-full h-max bg-slate-800 drop-shadow-lg m-6 ml-0 py-6 px-12 rounded'>
