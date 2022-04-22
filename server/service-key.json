@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "my-pomodoro-348005",
+  "private_key_id": "2c973bc1138a65e2c6f71c8d95e69500da04ef25",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCqHhQ3VGTSCddI\nnKndSGnHYEJE/Hsbrrx7hVbgqswIM08u5Ux468wjFDdBE8q3WBuuRwOqul41eI29\nUVGJ8hXDNWJncjy7Tz5+ikjOaIYk8PUh1JFGgp7UDfBFWmOa4FNImmEodQieEB+H\nP+TBVwyUlZJyuPnJXj/reVYbuWylWMdYAb6JZahkeFUitVNwHdY95eMueJzi7L5h\nspDHaYkwFrdjPC9bDoYAgIMMzy4W5xTd84770zEc0yvyIL+AdPUB1fz3BnNsKlyv\n+r9Z7BQpB72On3LLEfzYsgjmlNdPndZLNaMz77Hnj/JVDME+69X229hZhJQQbeDr\nAr/bz+7NAgMBAAECgf98u1cLrvKDVHmt+EfClSFXH+XURnoUwJt+DTTmHWyH89E4\nUVDSWJ2JMjf0KBSvCGVx9KtkWk1nrSWF0vzwaBXeS6kbO9v6TFSL8556FmO5eCHn\nMgYkSgp8NuqpY5c7/ZBY9zXdETiAT4xC0xB4yZq7bnuPlr+94Cja+NxqDtaUqmLp\nqxxtdITuG9vqUo5T2kBw4yOPwaYlYznqVBcItwKu/VHzsSZRsCGhMbi/fppwoPVg\n7UbeAuIeY4QvXE63iLopUH76l19EaKrMmEVMGVKb4kjiVZuRObiaC7DVW3KZdT8f\n3W5L4Ry2w+svw8ltQosbcCSDxsacvvN7pNptGjECgYEA0pWq46mQ+qPDQAoa9JaC\nBaC60798UX4vM6yC4p0BZYGTE66m642oW2uF6wKi1Rr7clbJNvBNCa8nFDdHfFmw\n8Wz4/9oO/RZA6uzA1es42Hj70+0RH3/kU3CcW4J7nV41TTNqnE8TIzaMn1BlTOAr\n0xhB8kTndCURPuoIQHFElFECgYEAzs46rX0UI5pYUYmN+uYR7WmOM7z9zh1eF4O7\n9pMxbo2AwHT+JHMkRfvIvMGgIuQ7ju2cMvGu2gn1H0kSzVIw21xE1Esv9H+PVYUf\nt6ze9ej7+HQrbT9w9vp9PZi6JhJE8c+DGgQGH9hERFxHZteic0IQLn2dwFKsrBtC\nA1Wmv70CgYEAsainBW62611hihN8bkDT7N+O/rmbrjzgoZ22xmxjEznf1UkRdcSK\n9qWd04jjyxn6bJofI4RT2gm01G9WlegtSWEAKQnUf1xY5Flczpyl1qsq+b4VJhgF\njweAQguxMjCak0j/dmOX56tLs9RlwheVoX/jkvrisa/b/tH+qC9nBiECgYA5QrzY\ngINtADVoDjAzwjRAijOHe9LCmTsOQ7lton/TXnbB0yLzMLZgckC4ktwmDQ+4mW3g\nZS7GzG8EhJUiKJnCgx/DsDXM+uzS/xMzJjht2l66AmBr1V8P43d98KXKGNDiK1Tf\nhTG064qraumSPi6Kv0X/uWROdhW9aaaziamr+QKBgQCV0MqFr5jXBodSPLIEBjZQ\nA7HtAE6cSA+qL96gwt7AdUtZSRAcNhdzLIKZjGpLDKKVYTzV8hqkVEzj9HKxg0Td\nigwS0jLfEd6qbnyEJ7NVyG39s+eWuqy33j4wih8G/B7bH7Ze543B4EWUE2PFTQIw\neKSkmjPnEJPm1JJ5x4VnpQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "alb-05@my-pomodoro-348005.iam.gserviceaccount.com",
+  "client_id": "115793874183035028381",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/alb-05%40my-pomodoro-348005.iam.gserviceaccount.com"
+}
