@@ -22,27 +22,36 @@ const DateDropdown = () => {
       id: 1238,
       date: 'September 15, 2022'
     },
-    {
+    /* {
       id: 1323,
       date: 'September 16, 2022'
     },
     {
       id: 156,
       date: 'September 17, 2022'
-    },
+    }, */
   ]
   const firstDate = DATE_SAMPLE[0].date
 
   const [showDropdownModal, setShowDropdownModal] = useState(false)
+  const [overflow, setOverflow] = useState('overflow-hidden')
   const [height, setHeight] = useState('h-0')
 
   const toggleModal = () => {
     if (showDropdownModal) {
       setHeight('h-0')
       setShowDropdownModal(false)
+      setOverflow('overflow-hidden')
     } else {
-      setHeight('h-48')
-      setShowDropdownModal(true)
+      if (DATE_SAMPLE.length <= 4) {
+        setHeight('h-44')
+        setShowDropdownModal(true)
+        setOverflow('overflow-hidden')
+      } else {
+        setHeight('h-44')
+        setShowDropdownModal(true)
+        setOverflow('overflow-auto')
+      }
     }
   }
 
@@ -67,13 +76,14 @@ const DateDropdown = () => {
         </button>
         <DateDropdownForm />
         <ul 
-          className={`fixed flex flex-col z-50 w-56 mx-2 overflow-auto text-center border border-slate-600 text-slate-900 bg-slate-100 top-20 ${height} peer-focus:${height} peer:transition ease-out duration-500`} 
+          className={`fixed flex flex-col z-50 w-56 mx-2 text-center border border-slate-600 text-slate-900 bg-slate-100 top-20 ${height} peer-focus:${height} peer:transition ease-out duration-500 ${overflow}`} 
         >
           {DATE_SAMPLE.map((item) => {
             return <Text
-              className="w-full cursor-pointer text-md py-2 border border-slate-600 hover:border-slate-600 hover:bg-slate-600 font-semibold"
+              className="w-full h-full cursor-pointer text-md py-2 border border-slate-600 hover:border-slate-600 hover:bg-slate-600 font-semibold"
               key={item.id}
               value={item.date}
+              onClick={toggleModal}
             />
           })}
         </ul>

@@ -1,8 +1,11 @@
-import { useState, useEffect, useRef } from "react"
+import { useState } from "react"
 import Input from "../../../../../Components/input"
+import Text from "../../../../../Components/text"
 import { VscDiffRemoved } from "react-icons/vsc"
 import { AiOutlineEdit } from "react-icons/ai"
 import { BsCheckSquare } from "react-icons/bs"
+import { MdMoreTime } from "react-icons/md"
+import LessTime from '../../../../../images/less-time'
 
 
 const Subtask = ({ 
@@ -87,24 +90,42 @@ const Subtask = ({
           />
         </div>
       
-      : <div className="flex justify-between items-center w-full">
-          <li 
-            className="my-4 text-xl text-white cursor-pointer"
-            key={id} 
-            onClick={clickSubtask}
-          >
-          {value}
-          </li>
-          <div className="flex">
-            <AiOutlineEdit
-              className="cursor-pointer fill-white hover:fill-gray-300 " 
-              size={34}
-              onClick={clickSubtask} 
-            />
-            <VscDiffRemoved
-              className="cursor-pointer ml-2 fill-red-500 hover:fill-red-700 " 
-              size={34}
-              onClick={deleteSubtask} 
+      : <div className="w-full mt-4 mb-2">
+          <div className="flex justify-between items-center mb-1">
+            <li 
+              className="text-xl text-white cursor-pointer"
+              key={id} 
+              onClick={clickSubtask}
+            >
+            {value}
+            </li>
+            <div className="flex">
+              <AiOutlineEdit
+                className="cursor-pointer fill-white hover:fill-gray-300 " 
+                size={34}
+                onClick={clickSubtask} 
+              />
+              <VscDiffRemoved
+                className="cursor-pointer ml-2 fill-red-500 hover:fill-red-700 " 
+                size={34}
+                onClick={deleteSubtask} 
+              />
+            </div>
+          </div>
+          <div className="flex justify-between items-center w-full">
+            <div className="flex items-center gap-3">
+              <LessTime 
+                fill='#0ea5e9'
+                hoverFill='#38bdf8'
+              />
+              <MdMoreTime 
+                className="cursor-pointer fill-sky-500 hover:fill-sky-400"
+                size={34}
+              />
+            </div>
+            <Text
+              className="text-white text-2xl" 
+              value='25:00'
             />
           </div>
         </div>

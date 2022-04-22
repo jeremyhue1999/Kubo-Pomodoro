@@ -47,7 +47,8 @@ const CompletedTaskCard = ({
               />
               {subtaskList.map((e) => {
                 return <Text
-                  className="text-white text-lg my-2" 
+                  className="text-white text-lg my-2"
+                  key={e.id} 
                   value={e.value}
                 />
               })}
