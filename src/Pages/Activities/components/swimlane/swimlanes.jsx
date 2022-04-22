@@ -13,12 +13,8 @@ const Swimlanes = () => {
   const userCollectionRef = collection (db, "Tasks") 
 
   const addTaskObject = async () => {
-    await addDoc(userCollectionRef, {
-      id: 1,
-      value: 'todo',
-      desc: 'desc.',
-      completed: false,
-      doing: false,
+    await taskList.forEach((e) => {
+      addDoc(userCollectionRef, e)
     })
   }
 
@@ -83,11 +79,10 @@ const Swimlanes = () => {
 
   useEffect(() => {
     if (test.length == 0) {
-      setTest(JSON.parse(localStorage.getItem('tasks')))
-    } else {
       localStorage.setItem('tasks', JSON.stringify(taskList))
+      setTest(JSON.parse(localStorage.getItem('tasks')))
     }
-  })
+  }, [test, setTest])
 
   const [description, setDescription] = useState("")
   const [showTaskForm, setShowTaskForm] = useState(false)
