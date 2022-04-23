@@ -1,6 +1,9 @@
 import Input from "../../../../../Components/input"
 import TextArea from "../../../../../Components/textarea"
 import Button from "../../../../../Components/button"
+import { collection, addDoc, getDocs, setDoc, doc } from 'firebase/firestore'
+import { db } from '../../../../../firebase-config'
+
 
 const TaskForm = ({
   task,
@@ -13,6 +16,7 @@ const TaskForm = ({
   setShowTaskForm,
   setShowAddTaskButton,
 }) => {
+  const userCollectionRef = collection(db, "tasks")
 
   if (!showTaskForm) {
     return null
@@ -39,16 +43,14 @@ const TaskForm = ({
     if (task.length === 0 || description.length === 0) {
       console.log("No input")
     } else {
-      setTaskList([
-        ...taskList,
-        {
-          id: Math.random() * 10000, 
-          value: task, 
-          desc: description, 
-          completed: false,
-          doing: false
-        }
-      ])
+      addDoc(userCollectionRef, {
+        id: Math.random() * 10000, 
+        value: task, 
+        desc: description, 
+        completed: false,
+        doing: false,
+        subtasks: []
+      })
       setTask('')
       setDescription('')
       setShowTaskForm(false)

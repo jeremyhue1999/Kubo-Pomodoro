@@ -12,6 +12,9 @@ const TodoTaskCard = ({
 	task,
 	taskList,
 	setTaskList,
+	addTaskObject,
+	showSaveButton,
+  setShowSaveButton,
 	setShowAddTaskButton }) => {
 
 	const [editMode, setEditMode] = useState(false) /* Used to check if task card is clicked */
@@ -247,6 +250,14 @@ const TodoTaskCard = ({
 				onClose={resetID}
 				taskID={taskID}
 			/>
+			{/* {showSaveButton 
+			&& 
+			} */}
+			<Button
+					value='Test'
+					onClick={addTaskObject}
+				/>
+			
 		</div>
 	)
 }

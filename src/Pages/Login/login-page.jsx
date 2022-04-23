@@ -1,7 +1,11 @@
+import Signup from "./components/Signup"
+
 
 const LoginPage = () => {
   return (
-    <div>LoginPage</div>
+    <div>
+      <Signup />
+    </div>
   )
 }
 
