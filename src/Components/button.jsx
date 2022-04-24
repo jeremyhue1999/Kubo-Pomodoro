@@ -4,6 +4,7 @@ const Button = ({
   type = "",
   visibility = true,
   onClick = () => {},
+  children
 }) => {
   
   if (!visibility) {
@@ -15,8 +16,9 @@ const Button = ({
       className={`${className} w-full p-1 bg-white font-medium`}
       type={type}
       onClick={onClick}
+      value={value}
     >
-    {value}
+    {children}
     </button>
   )
 }

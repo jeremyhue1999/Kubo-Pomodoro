@@ -5,7 +5,6 @@ import { VscChevronUp } from "react-icons/vsc"
 const CreateSubtasks = ({ 
   showCreateSubtasks, 
   onClose, 
-  task, 
   taskList,
   taskID 
 }) => {
@@ -25,7 +24,6 @@ const CreateSubtasks = ({
         />
       </div>
       <SubtaskForm 
-        task={task} 
         taskList={taskList}
         taskID={taskID}
       />

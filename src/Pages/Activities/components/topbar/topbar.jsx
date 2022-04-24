@@ -1,14 +1,14 @@
+import { useState } from 'react'
 import Button from '../../../../Components/button'
+import Text from '../../../../Components/text'
 import DateDropdown from '../date/date-dropdown'
+import LogoDark from '../../../../images/logo-dark'
 import GeneralSettings from '../popup-settings/GeneralSettings'
 import ShareLink from '../popup-settings/ShareLink'
 import SoundSettings from '../popup-settings/SoundSettings'
 import TimerSettings from '../popup-settings/TimerSettings'
-import LogoDark from '../../../../images/logo-dark'
-import { useState } from 'react'
 
 const Topbar = () => {
-  
   const [showGeneral, setShowGeneral] = useState(false)
   const [showTimer, setShowTimer] = useState(false)
   const [showSounds, setShowSounds] = useState(false)
@@ -22,33 +22,36 @@ const Topbar = () => {
         </span>
         <DateDropdown />
       </div>
-      <div className='flex gap-8'>
-        <div className='flex gap-4 text-md'>
-          <Button 
-            className='bg-transparent text-white w-auto'
-            value='General'
-            onClick={() => setShowGeneral(true)} 
-          />
-          <Button 
-            className='bg-transparent text-white w-auto'
-            value='Timer' 
-            onClick={() => setShowTimer(true)} 
-          />
-          <Button 
-            className='bg-transparent text-white w-auto'
-            value='Sound and Notifications' 
-            onClick={() => setShowSounds(true)} 
-          />
-          <Button 
-            className='bg-transparent text-white w-auto'
-            value='Share Link' 
-            onClick={() => setShowShareLink(true)} 
-          />
-        </div>
+      <div className='flex gap-4 text-md'>
+        <Button 
+          className='bg-transparent text-white w-auto'
+          onClick={() => setShowGeneral(true)} 
+        >
+          <Text value='General'/>
+        </Button>
+        <Button 
+          className='bg-transparent text-white w-auto' 
+          onClick={() => setShowTimer(true)} 
+        >
+          <Text value='Timer' />
+        </Button>
+        <Button 
+          className='bg-transparent text-white w-auto'
+          onClick={() => setShowSounds(true)} 
+        >
+          <Text value='Sound and Notifications'/>
+        </Button>
+        <Button 
+          className='bg-transparent text-white w-auto'
+          onClick={() => setShowShareLink(true)} 
+        >
+          <Text value='Share Link'/>
+        </Button>
         <Button 
           className='w-48 m-2 p-2 rounded bg-slate-400 text-slate-900 hover:bg-slate-300 text-md place-self-center'
-          value='Sign Out'
-        />
+        >
+          <Text value='Sign Out'/>
+        </Button>
       </div>
       <GeneralSettings
         showGeneral={showGeneral} 

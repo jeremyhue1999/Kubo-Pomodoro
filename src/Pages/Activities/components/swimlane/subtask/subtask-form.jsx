@@ -1,53 +1,44 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Button from "../../../../../Components/button"
 import Input from "../../../../../Components/input"
 import SubtaskList from "./subtask-list"
 import { VscAdd } from "react-icons/vsc"
-import { useEffect } from "react"
+import { collection, doc, arrayUnion, updateDoc } from 'firebase/firestore'
+import { db } from '../../../../../firebase-config'
+import { v4 as uuidv4 } from 'uuid'
 
 const SubtaskForm = ({ taskList, taskID }) => {
+  /* Values */
   const [subtask, setSubtask] = useState({
-    id: Math.random() * 10000, 
+    id: '', 
     value: '', 
     completed: false
   })
+
+  /* References */
+  const userDocumentRef = doc(db, "testUsers", "user1")
+  const tasksCollectionRef = collection(userDocumentRef, 'testTasks')
   const currentTask = taskList.find((e) => e.id === taskID)
-  const [subtaskList, setSubtaskList] = useState()
-
-  useEffect(() => {
-    if (subtaskList == null) {
-      return subtaskList
-    } else {
-      currentTask.subtasks = subtaskList
-    }
-  })
-
-  useEffect(() => {
-    if (currentTask == null) {
-      return currentTask
-    } else {
-      setSubtaskList(currentTask.subtasks)
-    }
-  }, [currentTask])
   
-  const changeHandler = e => {
-    /* Adds a Subtask */
+  const getSubtask = e => {
     setSubtask({
-      id: Math.random() * 10000, 
+      id: uuidv4(), 
       value: e.target.value, 
       completed: false
     })
   }
-
-  const submitHandler = e => {
-    /* Adds a Subtask Object on subtaskList */
+  
+  const submitHandler = (e, taskID, subtask) => {
     e.preventDefault()
     if (subtask.value === '') {
       console.log("No Input")
     } else {
-      currentTask.subtasks.push(subtask)
+      const tasksDocumentRef = doc(tasksCollectionRef, taskID)
+      updateDoc(tasksDocumentRef, {
+        subtasks: arrayUnion(subtask)
+      })
       setSubtask({
-        id: subtask.id,
+        id: '', 
         value: '', 
         completed: false
       })
@@ -63,24 +54,21 @@ const SubtaskForm = ({ taskList, taskID }) => {
           name="Subtask"
           type="text"
           placeholder="Subtask Name"
-          onChange={changeHandler}
+          onChange={getSubtask}
           required={true}
         />
         <Button 
           className="cursor-pointer flex justify-center bg-slate-500 hover:bg-slate-600 rounded mt-1" 
-          onClick={submitHandler}
-          value=
-          {<VscAdd
+          onClick={(e) => {submitHandler(e, taskID, subtask)}}
+        >
+          <VscAdd
             className="fill-white py-1" 
             size={32}
-          />}
-        >
+          />
         </Button>
       </form>
       <SubtaskList
         currentTask={currentTask}
-        subtaskList={subtaskList}
-        setSubtaskList={setSubtaskList}
       />
     </div>
   )
