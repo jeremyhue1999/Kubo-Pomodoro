@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Input from "../../../../../Components/input"
 import Text from "../../../../../Components/text"
 import { VscDiffRemoved } from "react-icons/vsc"
@@ -6,40 +6,63 @@ import { AiOutlineEdit } from "react-icons/ai"
 import { BsCheckSquare } from "react-icons/bs"
 import { MdMoreTime } from "react-icons/md"
 import LessTime from '../../../../../images/less-time'
+import { collection, doc, updateDoc, arrayUnion, arrayRemove, getDoc, setDoc } from 'firebase/firestore'
+import { db } from '../../../../../firebase-config'
 
 
 const Subtask = ({ 
   subtask,
   subtaskList,
-  setSubtaskList
+  setSubtaskList,
+  currentTask
 }) => {
 
+  /* UI */
   const [showEditInput, setShowEditInput] = useState(false)
-  const [renamedSubtask, setRenamedSubtask] = useState('')
-  let { id, value } = subtask
+
+  /* Values */
+  let { id: subtaskID, value: subtaskValue } = subtask
+  const [currentSubtask, setCurrentSubtask] = useState({})
+  const [newSubtask, setNewSubtask] = useState({
+    id: '', 
+    value: '', 
+    completed: false
+  })
+
+  /* References */
+  const userDocumentRef = doc(db, "testUsers", "user1")
+  const tasksCollectionRef = collection(userDocumentRef, 'testTasks')
 
   const deleteSubtask = () => {
     /* Deletes a subtask */
-    setSubtaskList(subtaskList.filter((e) => e.id !== id))
+    setSubtaskList(subtaskList.filter((e) => e.id !== subtaskID))
   }
 
-  const completeSubtask = () => {
-    subtask.completed = true
-  }
-
-  const updateSubtask = (subtaskID, newSubtask) => { 
-    subtask.id = subtaskID
-    subtask.value = newSubtask
-    subtask.completed = false
-  }
+  useEffect(() => {
+    const getCurrentSubtask = async () => {
+      const tasksDocumentRef = doc(tasksCollectionRef, currentTask.id)
+      const docSnap = await getDoc(tasksDocumentRef)
+      const data = docSnap.data().subtasks
+      const current_subtask = data.filter(e => e.id === subtaskID)
+      setCurrentSubtask(current_subtask[0])
+    }
+    getCurrentSubtask()
+  }, [setCurrentSubtask])
 
   const renameSubtaskClick = () => {
-    /* Same as rename task but for button onClick*/
-    if (renamedSubtask === '') {
+    if (newSubtask.value === '' || newSubtask.value == subtaskValue) {
       setShowEditInput(false)
     } else {
-      updateSubtask(id, renamedSubtask)
-      setRenamedSubtask('')
+      const tasksDocumentRef = doc(tasksCollectionRef, currentTask.id)
+      console.log(newSubtask)
+      updateDoc(tasksDocumentRef, {
+        subtasks: arrayRemove(currentSubtask)
+        }
+      )
+      updateDoc(tasksDocumentRef, {
+          subtasks: arrayUnion(newSubtask)
+        }
+      )
       setShowEditInput(false) 
     }
   }
@@ -49,19 +72,21 @@ const Subtask = ({
       /* Hides Edit Input */
       setShowEditInput(false)
     } else if (e.key === 'Enter') {
-      if (renamedSubtask === '') {
+      if (newSubtask.value === '') {
         setShowEditInput(false)
       } else {
         /* Overwrites the current subtask value */
-        updateSubtask(id, renamedSubtask)
-        setRenamedSubtask('')
         setShowEditInput(false)
       }
     }
   }
 
-  const getEditInput = e => {
-    setRenamedSubtask(e.target.value)
+  const getNewSubtask = e => {
+    setNewSubtask({
+      id: currentSubtask.id, 
+      value: e.target.value, 
+      completed: currentSubtask.completed
+    })
   }
   
   const clickSubtask = () => { 
@@ -76,10 +101,10 @@ const Subtask = ({
           <Input
             className="mr-2 placeholder:text-md w-full"
             name="Edit Subtask"
-            defaultValue={value}
+            defaultValue={subtaskValue}
             type="text"
-            placeholder={value}
-            onChange={getEditInput}
+            placeholder={subtaskValue}
+            onChange={getNewSubtask}
             onKeyDown={renameSubtaskKey}
             required={true}
           />
@@ -94,10 +119,10 @@ const Subtask = ({
           <div className="flex justify-between items-center mb-1">
             <li 
               className="text-xl text-white cursor-pointer"
-              key={id} 
+              key={subtaskID} 
               onClick={clickSubtask}
             >
-            {value}
+            {subtaskValue}
             </li>
             <div className="flex">
               <AiOutlineEdit

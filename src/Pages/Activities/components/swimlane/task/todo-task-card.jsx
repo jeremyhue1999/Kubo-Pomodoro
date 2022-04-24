@@ -59,7 +59,7 @@ const TodoTaskCard = ({
   
   const renameTaskFunctionClick = async (id, newValue) => {
     if (editTask) {
-      if (newTask === "") {
+      if (newTask === "" || newTask === newTask) {
         setEditTask(false)
       } else {
 				const tasksDocumentRef = doc(tasksCollectionRef, id)
@@ -67,7 +67,7 @@ const TodoTaskCard = ({
 				setEditTask(false)
       }
     } else if (editDescription) {
-      if (newDescription === "") {
+      if (newDescription === "" || newDescription === newDescription) {
         setEditDescription(false)
       } else {
         const tasksDocumentRef = doc(tasksCollectionRef, id)
