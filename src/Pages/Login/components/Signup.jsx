@@ -4,76 +4,20 @@ import Login from "./Login";
 import { FaEnvelope, FaLock, FaUserAlt } from "react-icons/fa";
 
 
-class Signup extends React.Component {
-  constructor(props) {
-    super(props);
+const Signup = () => {
+  
+  const [email, setEmail] = React.useState("");
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [confirmPassword, setConfirmPassword] = React.useState("");
 
-    this.state = {
-      user: {
-        email: props.email,
-        username: props.username,
-        password: props.password,
-        passwordConfirmation: props.passwordConfirmation,
-      },
-    };
-
-  }
-
-  handleChangedEmail (event) {
-    var user = this.state.user;
-
-    var modifiedEmail= event.target.value;
-
-    user.email = modifiedEmail;
-
-    this.setState({
-      user: user
-    })
-  }
-
-  handleChangedUserName (event) {
-    var user = this.state.user;
-
-    var modifiedUserName= event.target.value;
-
-    user.username = modifiedUserName;
-
-    this.setState({
-      user: user
-    })
-  }
-
-  handleChangedPassword (event) {
-    var user = this.state.user;
-
-    var modifiedPassword= event.target.value;
-
-    user.password = modifiedPassword;
-
-    this.setState({
-      user: user
-    })
-  }
-
-  handleChangedPasswordConfirmation (event) {
-    var user = this.state.user;
-
-    var modifiedPasswordConfirmation= event.target.value;
-
-    user.passwordConfirmation = modifiedPasswordConfirmation;
-
-    this.setState({
-      user: user
-    })
-  }
-
-  getInput () {
-    console.log(this.state.user);
-      render(<Login />, document.getElementById("root"));
-    };
   
 
-  render() {
+  const getInput = () => {
+    alert([email, username, password, confirmPassword]);
+  };
+
+  
     const handleCancel = () => {
       render(<Login />, document.getElementById("root"));
     };
@@ -106,8 +50,8 @@ class Signup extends React.Component {
                       type="email"
                       name="email"
                       id="email"
-                      value={this.state.user.email}
-                      onChange={this.handleChangedEmail.bind(this)}
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       placeholder="Email Address"
                       className=" flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border-2 border-gray-300 rounded focus:border-gray-400 outline-none mb-4"
                       required
@@ -125,8 +69,8 @@ class Signup extends React.Component {
                       type="username"
                       name="username"
                       id="username"
-                      value={this.state.user.username}
-                      onChange={this.handleChangedUserName.bind(this)}
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
                       placeholder="Username"
                       className=" flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border-2 border-gray-300 rounded focus:border-gray-400 outline-none "
                       required
@@ -144,8 +88,8 @@ class Signup extends React.Component {
                       type="password"
                       name="password"
                       id="password"
-                      value={this.state.user.password}
-                      onChange={this.handleChangedPassword.bind(this)}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                       placeholder="Password..."
                       className="flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border-2 border-gray-300focus:border-gray-400 outline-none mt-4"
                       required
@@ -163,8 +107,8 @@ class Signup extends React.Component {
                       type="password"
                       name="password"
                       id="confirm-password"
-                      value={this.state.user.passwordConfirmation}
-                      onChange={this.handleChangedPasswordConfirmation.bind(this)}
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
                       placeholder="Confirm Password..."
                       className="flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border-2 border-gray-300 rounded focus:border-gray-400 outline-none mt-4"
                       required
@@ -178,7 +122,7 @@ class Signup extends React.Component {
                     <button
                       type="button"
                       className="w-full justify-center my-2 text-white bg-[#2F2440] hover:bg-[#800020] hover:text-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center"
-                      onClick={this.getInput.bind(this)}
+                      onClick={getInput}
                     >
                       Signup
                     </button>
@@ -196,7 +140,7 @@ class Signup extends React.Component {
           </div>
        
     );
-  }
 }
+  
 
 export default Signup;
