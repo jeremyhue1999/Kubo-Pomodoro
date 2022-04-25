@@ -15,6 +15,7 @@ const Signup = () => {
 
   const getInput = () => {
     alert([email, username, password, confirmPassword]);
+    render(<Login />, document.getElementById("root"));
   };
 
   

@@ -3,8 +3,8 @@ import { render } from "react-dom";
 import Login from "./Login";
 import ActivitiesPage from "../../Activities/activities-page";
 
-class VerifyCode extends React.Component {
-  render() {
+const VerifyEmail = () => {
+  
     const handleCancel = () => {
       render(<Login />, document.getElementById("root"));
     };
@@ -35,9 +35,9 @@ class VerifyCode extends React.Component {
                     </label>
                     <input
                       type="text"
-                      name="code"
-                      id="verification-code"
-                      placeholder="Code"
+                      name="email"
+                      id="email"
+                      placeholder="Email Address"
                       className="flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border-2 border-gray-300 rounded focus:border-gray-400 outline-none "
                       required
                     ></input>
@@ -66,7 +66,7 @@ class VerifyCode extends React.Component {
             </div>
           </div>
     );
-  }
+  
 }
 
-export default VerifyCode;
+export default VerifyEmail;

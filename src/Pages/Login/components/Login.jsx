@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "react-dom";
 import Signup from "./Signup.jsx";
 import ForgotPassword from "./ForgotPassword.jsx";
-import VerifyCode from "./VerifyCode.jsx";
+import VerifyEmail from "./VerifyEmail.jsx";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 
 const Login = () => {
@@ -17,6 +17,7 @@ const Login = () => {
  
     const getInput = () => {
     alert([username,password]);
+    render(<VerifyEmail/>, document.getElementById("root"));
    
 } 
 
@@ -29,8 +30,7 @@ const Login = () => {
     };
 
     return (
-      
-      
+    
         <div className="flex flex-col flex-wrap items-center justify-center w-screen h-screen bg-[#800020] ">
           
             <img
