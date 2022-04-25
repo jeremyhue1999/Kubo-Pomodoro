@@ -26,7 +26,7 @@ const Signup = () => {
     
 
     return (
-      <div className="flex flex-col items-center justify-center w-screen h-screen bg-[#800020] ">
+      <div className="flex flex-col items-center justify-center w-screen h-screen bg-red-900 ">
 
             <img
                 className="logo object-scale-down w-40 h-fit mb-4 cursor-pointer"
@@ -35,7 +35,7 @@ const Signup = () => {
             />
 
             {/*Content*/}
-            <div className="flex flex-col bg-[#F5F5DC] rounded-2xl shadow-md shadow-white w-100">
+            <div className="flex flex-col bg-white rounded-2xl shadow-md shadow-white w-100">
               <h1 className=" text-4xl font-bold text-black text-center mt-4">
                 SIGNUP
               </h1>
@@ -122,14 +122,14 @@ const Signup = () => {
                   <div className="pt-4">
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-[#2F2440] hover:bg-[#800020] hover:text-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center"
+                      className="w-full justify-center my-2 text-white bg-blue-600 hover:bg-black hover:text-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center"
                       onClick={getInput}
                     >
                       Signup
                     </button>
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-[#FF2511] hover:bg-[#800020] hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+                      className="w-full justify-center my-2 text-white bg-red-500 hover:bg-black hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
                       onClick={handleCancel}
                     >
                       Cancel

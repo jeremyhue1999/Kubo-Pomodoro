@@ -14,7 +14,7 @@ const VerifyEmail = () => {
     };
 
     return (
-      <div className="flex flex-col flex-wrap items-center justify-center md:w-screen h-screen bg-[#800020]">
+      <div className="flex flex-col flex-wrap items-center justify-center md:w-screen h-screen bg-red-900">
             <img
                 className="logo object-cover w-40 h-fit mb-4 cursor-pointer"
                 src={require("../../../images/logo-dark.png")}
@@ -22,7 +22,7 @@ const VerifyEmail = () => {
             />
 
             {/*Content*/}
-            <div className="flex flex-col bg-[#F5F5DC] rounded-2xl shadow-md shadow-white w-auto p-2">
+            <div className="flex flex-col bg-white rounded-2xl shadow-md shadow-white w-auto p-2">
               <h1 className=" text-4xl font-bold text-black text-center mt-4">
                 VERIFY CODE
               </h1>
@@ -47,7 +47,7 @@ const VerifyEmail = () => {
                     <button
                       type="button"
                       id="verify-login"
-                      className="w-full justify-center my-2 text-white bg-[#2F2440] hover:bg-[#800020] hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mt-6 mb-2"
+                      className="w-full justify-center my-2 text-white bg-blue-500 hover:bg-gray-900 hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mt-6 mb-2"
                       onClick={handleVerify}
                     >
                       Verify
@@ -55,7 +55,7 @@ const VerifyEmail = () => {
                     <button
                       type="button"
                       id="cancel-login"
-                      className="w-full justify-center my-2 text-white bg-[#FF2511] border-white hover:bg-[#800020] hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mb-2"
+                      className="w-full justify-center my-2 text-white bg-red-500 hover:bg-red-900 hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mb-2"
                       onClick={handleCancel}
                     >
                       Cancel
