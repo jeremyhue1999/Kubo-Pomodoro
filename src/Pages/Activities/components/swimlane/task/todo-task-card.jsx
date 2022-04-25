@@ -7,7 +7,7 @@ import TextArea from "../../../../../Components/textarea"
 import { AiOutlineEdit } from "react-icons/ai"
 import { BsCheckSquare } from "react-icons/bs"
 import { VscCheck } from "react-icons/vsc"
-import { collection, doc, updateDoc } from 'firebase/firestore'
+import { collection, doc, updateDoc, deleteDoc } from 'firebase/firestore'
 import { db } from '../../../../../firebase-config'
 
 const TodoTaskCard = ({
@@ -35,6 +35,13 @@ const TodoTaskCard = ({
     cursorType = "pointer"
   } else {
     cursorType = "auto"
+  }
+
+  const deleteTask = (id) => {
+    const tasksDocumentRef = doc(tasksCollectionRef, id)
+    deleteDoc(tasksDocumentRef)
+    setEditTask(false)
+    showAddTaskButton()
   }
 
 	const renameTaskFunction = (e, id, newValue) => {
@@ -208,6 +215,7 @@ const TodoTaskCard = ({
           <Text
             className="text-slate-900 hover:text-slate-800 text-lg font-bold"
             value="DELETE TASK"
+            onClick={() => {deleteTask(task.id)}}
           />
         </Button>
       }
