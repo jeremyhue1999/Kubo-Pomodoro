@@ -1,7 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
 import Login from "./Login";
-import ChangePassword from "./ChangePassword";
 import { FaEnvelope, FaLock, FaUserAlt } from "react-icons/fa";
 import partitionApplyAtRules from "tailwindcss/lib/lib/partitionApplyAtRules";
 
@@ -70,7 +69,7 @@ class Signup extends React.Component {
 
   getInput () {
     console.log(this.state.user);
-      render(<ChangePassword />, document.getElementById("root"));
+      render(<Login />, document.getElementById("root"));
     };
   
 
