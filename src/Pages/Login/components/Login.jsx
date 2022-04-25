@@ -6,6 +6,50 @@ import VerifyCode from "./VerifyCode.jsx";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 
 class Login extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      user: {
+        username: props.username,
+        password: props.password,
+      },
+    };
+
+  }
+
+  handleChangedUserName (event) {
+    var user = this.state.user;
+
+    var modifiedUserName= event.target.value;
+
+    user.username = modifiedUserName;
+
+    this.setState({
+      user: user
+    })
+  }
+
+  handleChangedPassword (event) {
+    var user = this.state.user;
+
+    var modifiedPassword= event.target.value;
+
+    user.password = modifiedPassword;
+
+    this.setState({
+      user: user
+    })
+  }
+
+  
+  getInput () {
+    console.log(this.state.user);
+    render(<VerifyCode />, document.getElementById("root"));
+}
+
+
+
   render() {
     const handleSignup = () => {
       render(<Signup />, document.getElementById("root"));
@@ -13,10 +57,6 @@ class Login extends React.Component {
 
     const handleForgotPassword = () => {
       render(<ForgotPassword />, document.getElementById("root"));
-    };
-
-    const login = () => {
-      render(<VerifyCode />, document.getElementById("root"));
     };
 
     return (
@@ -44,9 +84,11 @@ class Login extends React.Component {
                       Username
                     </label>
                     <input
-                      type="username"
+                      type="text"
                       name="username"
                       id="username"
+                      value={this.state.user.username}
+                      onChange={this.handleChangedUserName.bind(this)}
                       placeholder="Username"
                       className=" flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border-2 border-gray-300 rounded focus:border-gray-400 outline-none "
                       required
@@ -61,9 +103,11 @@ class Login extends React.Component {
                       Password
                     </label>
                     <input
-                      type="password"
+                      type="text"
                       name="password"
                       id="password"
+                      value={this.state.user.password}
+                      onChange={this.handleChangedPassword.bind(this)}
                       placeholder="Password..."
                       className="flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border-2 border-gray-300 focus:border-gray-400 outline-none mt-4"
                       required
@@ -77,7 +121,7 @@ class Login extends React.Component {
                     <button
                       type="button"
                       className="w-full justify-center my-2 text-white bg-[#2F2440] hover:bg-[#800020] hover:text-white focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mt-4 mb-2"
-                      onClick={login}
+                      onClick={this.getInput.bind(this)}
                     >
                       Login
                     </button>
