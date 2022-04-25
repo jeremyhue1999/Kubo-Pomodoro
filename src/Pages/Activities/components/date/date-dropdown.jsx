@@ -76,11 +76,11 @@ const DateDropdown = () => {
         </button>
         <DateDropdownForm />
         <ul 
-          className={`fixed flex flex-col z-50 w-56 mx-2 text-center border border-slate-600 text-slate-900 bg-slate-100 top-20 ${height} peer-focus:${height} peer:transition ease-out duration-500 ${overflow}`} 
+          className={`absolute flex flex-col z-50 w-56 mx-2 text-center border border-red-900 text-slate-900 bg-white top-20 ${height} peer-focus:${height} peer:transition ease-out duration-500 ${overflow}`} 
         >
           {DATE_SAMPLE.map((item) => {
             return <Text
-              className="w-full h-full cursor-pointer text-md py-2 border border-slate-600 hover:border-slate-600 hover:bg-slate-600 font-semibold"
+              className="w-full h-full cursor-pointer text-md py-2 border border-red-900 hover:border-red-300 hover:bg-red-300 font-semibold"
               key={item.id}
               value={item.date}
               onClick={toggleModal}

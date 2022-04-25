@@ -44,7 +44,7 @@ const TodoTaskCard = ({
     showAddTaskButton()
   }
 
-	const renameTaskFunction = (e, id, newValue) => {
+	const renameTaskFunction = async (e, id, newValue) => {
     if (editTask) {
       if (e.key === "Escape") {
         setEditTask(false)
@@ -123,7 +123,7 @@ const TodoTaskCard = ({
   }
 
   return (
-    <div className="flex flex-col w-96 h-auto bg-slate-800 w-full px-4 py-2 mb-4 rounded">
+    <div className="flex flex-col w-96 h-auto bg-red-900 w-full px-4 py-2 mb-4 rounded">
       <div
         className={`cursor-${cursorType} flex flex-col gap-2 peer`}
         onClick={hideAddTaskButton}
@@ -176,11 +176,11 @@ const TodoTaskCard = ({
               required={true}
             />
             <Button
-              className="cursor-pointer flex justify-center bg-slate-800 border-2 border-green-500 hover:border-green-700 rounded w-full"
+              className="cursor-pointer flex justify-center bg-green-500 hover:bg-green-400 rounded w-full"
               onClick={() => {renameTaskFunctionClick(task.id, newDescription)}}
             >
 							<VscCheck
-								className="fill-green-500 hover:fill-green-700 py-1"
+								className="fill-green-900 hover:fill-green-800 py-1"
 								size={32}
 							/>
 						</Button>

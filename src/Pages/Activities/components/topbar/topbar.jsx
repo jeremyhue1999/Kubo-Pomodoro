@@ -15,7 +15,7 @@ const Topbar = () => {
   const [showShareLink, setShowShareLink] = useState(false)
 
   return (
-    <div className='flex items-center justify-between h-auto w-full bg-slate-800 p-2'>
+    <div className='flex items-center justify-between h-auto w-full bg-red-900 p-2'>
       <div className='flex items-center gap-6'>
         <span className='ml-4 w-40'>
           <LogoDark />
@@ -48,7 +48,7 @@ const Topbar = () => {
           <Text value='Share Link'/>
         </Button>
         <Button 
-          className='w-48 m-2 p-2 rounded bg-slate-400 text-slate-900 hover:bg-slate-300 text-md place-self-center'
+          className='w-48 m-2 p-2 rounded bg-white text-slate-900 hover:bg-slate-300 text-md place-self-center'
         >
           <Text value='Sign Out'/>
         </Button>
