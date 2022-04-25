@@ -122,7 +122,7 @@ const Signup = () => {
                   <div className="pt-4">
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-blue-600 hover:bg-black hover:text-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center"
+                      className="w-full justify-center my-2 text-white bg-green-700 hover:bg-black hover:text-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center"
                       onClick={getInput}
                     >
                       Signup

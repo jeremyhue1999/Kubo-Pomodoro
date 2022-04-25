@@ -23,8 +23,11 @@ const VerifyEmail = () => {
 
             {/*Content*/}
             <div className="flex flex-col bg-white rounded-2xl shadow-md shadow-white w-auto p-2">
-              <h1 className=" text-4xl font-bold text-black text-center mt-4">
-                VERIFY CODE
+              <h1 className=" text-4xl font-bold text-black mt-4">
+                EMAIL VERIFICATION
+              </h1>
+              <h1 className=" text-sm text-gray-600 text-center mt-4">
+                Please Enter your Email Address Below
               </h1>
 
               <form className="mt-4 justify-center w-full p-6">
@@ -47,7 +50,7 @@ const VerifyEmail = () => {
                     <button
                       type="button"
                       id="verify-login"
-                      className="w-full justify-center my-2 text-white bg-blue-500 hover:bg-gray-900 hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mt-6 mb-2"
+                      className="w-full justify-center my-2 text-white bg-green-700 hover:bg-black hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mt-6 mb-2"
                       onClick={handleVerify}
                     >
                       Verify
@@ -55,7 +58,7 @@ const VerifyEmail = () => {
                     <button
                       type="button"
                       id="cancel-login"
-                      className="w-full justify-center my-2 text-white bg-red-500 hover:bg-red-900 hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mb-2"
+                      className="w-full justify-center my-2 text-white bg-red-500 hover:bg-black hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mb-2"
                       onClick={handleCancel}
                     >
                       Cancel
