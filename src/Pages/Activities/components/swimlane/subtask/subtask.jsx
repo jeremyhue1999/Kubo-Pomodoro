@@ -12,8 +12,6 @@ import { db } from '../../../../../firebase-config'
 
 const Subtask = ({ 
   subtask,
-  subtaskList,
-  setSubtaskList,
   currentTask
 }) => {
 
@@ -22,7 +20,11 @@ const Subtask = ({
 
   /* Values */
   let { id: subtaskID, value: subtaskValue } = subtask
-  const [currentSubtask, setCurrentSubtask] = useState({})
+  const [currentSubtask, setCurrentSubtask] = useState({
+    id: '', 
+    value: '', 
+    completed: false
+  })
   const [newSubtask, setNewSubtask] = useState({
     id: '', 
     value: '', 
@@ -34,8 +36,11 @@ const Subtask = ({
   const tasksCollectionRef = collection(userDocumentRef, 'testTasks')
 
   const deleteSubtask = () => {
-    /* Deletes a subtask */
-    setSubtaskList(subtaskList.filter((e) => e.id !== subtaskID))
+    const tasksDocumentRef = doc(tasksCollectionRef, currentTask.id)
+    updateDoc(tasksDocumentRef, {
+      subtasks: arrayRemove(subtask)
+      }
+    )
   }
 
   useEffect(() => {
@@ -54,9 +59,8 @@ const Subtask = ({
       setShowEditInput(false)
     } else {
       const tasksDocumentRef = doc(tasksCollectionRef, currentTask.id)
-      console.log(newSubtask)
       updateDoc(tasksDocumentRef, {
-        subtasks: arrayRemove(currentSubtask)
+        subtasks: arrayRemove(subtask)
         }
       )
       updateDoc(tasksDocumentRef, {
@@ -69,13 +73,20 @@ const Subtask = ({
 
   const renameSubtaskKey = e => {
     if (e.key === 'Escape') {
-      /* Hides Edit Input */
       setShowEditInput(false)
     } else if (e.key === 'Enter') {
-      if (newSubtask.value === '') {
+      if (newSubtask.value === '' || newSubtask.value == subtaskValue) {
         setShowEditInput(false)
       } else {
-        /* Overwrites the current subtask value */
+        const tasksDocumentRef = doc(tasksCollectionRef, currentTask.id)
+        updateDoc(tasksDocumentRef, {
+          subtasks: arrayRemove(subtask)
+          }
+        )
+        updateDoc(tasksDocumentRef, {
+            subtasks: arrayUnion(newSubtask)
+          }
+        )
         setShowEditInput(false)
       }
     }

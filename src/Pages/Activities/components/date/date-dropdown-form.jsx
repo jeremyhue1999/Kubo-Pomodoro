@@ -15,7 +15,6 @@ const DateDropdownForm = () => {
     array.push(e.target.date.value)
     setInputType('hidden')
     setFormDisplay('hidden')
-    console.log(array)
   }
 
   return (

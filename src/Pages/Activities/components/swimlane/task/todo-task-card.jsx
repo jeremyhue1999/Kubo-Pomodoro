@@ -59,7 +59,7 @@ const TodoTaskCard = ({
   
   const renameTaskFunctionClick = async (id, newValue) => {
     if (editTask) {
-      if (newTask === "" || newTask === newTask) {
+      if (newTask === "" || newTask === task.value) {
         setEditTask(false)
       } else {
 				const tasksDocumentRef = doc(tasksCollectionRef, id)
@@ -67,7 +67,7 @@ const TodoTaskCard = ({
 				setEditTask(false)
       }
     } else if (editDescription) {
-      if (newDescription === "" || newDescription === newDescription) {
+      if (newDescription === "" || newDescription === task.desc) {
         setEditDescription(false)
       } else {
         const tasksDocumentRef = doc(tasksCollectionRef, id)
@@ -180,9 +180,9 @@ const TodoTaskCard = ({
           </div>
         :	<div>
             {editMode
-						? <div className="flex w-full text-white text-xl break-all">
+						? <div className="flex w-full  break-all">
                 <Text
-                  className="w-full"
+                  className="w-full text-white text-md"
                   value={task.desc}
                   onClick={showEditDescriptionInput}
                 />
@@ -192,7 +192,7 @@ const TodoTaskCard = ({
                   onClick={showEditDescriptionInput}
                 />
               </div>
-            :	<Text className="text-white text-xl truncate" value={task.desc} />
+            :	<Text className="text-white text-md truncate" value={task.desc} />
             }
           </div>
         }
@@ -203,6 +203,14 @@ const TodoTaskCard = ({
         onClose={resetID}
         taskID={taskID}
       />
+      {editMode && 
+        <Button className="mt-4 mb-2 rounded bg-slate-100 hover:bg-red-600">
+          <Text
+            className="text-slate-900 hover:text-slate-800 text-lg font-bold"
+            value="DELETE TASK"
+          />
+        </Button>
+      }
     </div>
   )
 }
