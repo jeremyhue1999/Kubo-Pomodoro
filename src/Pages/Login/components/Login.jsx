@@ -6,6 +6,50 @@ import VerifyCode from "./VerifyCode.jsx";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 
 class Login extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      user: {
+        username: props.username,
+        password: props.password,
+      },
+    };
+
+  }
+
+  handleChangedUserName (event) {
+    var user = this.state.user;
+
+    var modifiedUserName= event.target.value;
+
+    user.username = modifiedUserName;
+
+    this.setState({
+      user: user
+    })
+  }
+
+  handleChangedPassword (event) {
+    var user = this.state.user;
+
+    var modifiedPassword= event.target.value;
+
+    user.password = modifiedPassword;
+
+    this.setState({
+      user: user
+    })
+  }
+
+  
+  getInput () {
+    console.log(this.state.user);
+    render(<VerifyCode />, document.getElementById("root"));
+  }
+
+
+
   render() {
     const handleSignup = () => {
       render(<Signup />, document.getElementById("root"));
@@ -15,27 +59,20 @@ class Login extends React.Component {
       render(<ForgotPassword />, document.getElementById("root"));
     };
 
-    const login = () => {
-      render(<VerifyCode />, document.getElementById("root"));
-    };
-
     return (
-      <div className="min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none">
-        <div className="relative p-4 max-w-2xl h-auto md:w-full sm:w-min md:h-auto">
-          {/*Login Header */}
-          <div className="relative bg-white shadow shadow-gray-600 dark:bg-[#EB3C27]">
-            {/*Login Header*/}
-            <div className="flex items-center justify-center">
-              <img
-                className="logo object-cover w-40 h-auto"
+      
+      
+        <div className="flex flex-col flex-wrap items-center justify-center w-screen h-screen bg-[#800020] ">
+          
+            <img
+                className="logo object-scale-down w-40 h-fit mb-4 cursor-pointer"
                 src={require("../../../images/logo-dark.png")}
                 alt="logo"
-              ></img>
-            </div>
-
+            />
+          
             {/*Content*/}
-            <div className="flex flex-col bg-gray-300">
-              <h1 className=" text-4xl font-bold text-black text-center mt-4">
+            <div className="flex flex-col bg-[#F5F5DC] rounded-2xl shadow-md text-black shadow-white w-100">
+              <h1 className=" text-4xl font-bold  text-center mt-4">
                 LOGIN
               </h1>
 
@@ -47,11 +84,13 @@ class Login extends React.Component {
                       Username
                     </label>
                     <input
-                      type="username"
+                      type="text"
                       name="username"
                       id="username"
+                      value={this.state.user.username}
+                      onChange={this.handleChangedUserName.bind(this)}
                       placeholder="Username"
-                      className=" flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border border-transparent rounded focus:border-gray-400 outline-none "
+                      className=" flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border-2 border-gray-300 rounded focus:border-gray-400 outline-none "
                       required
                     ></input>
                     <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 p-2">
@@ -64,11 +103,13 @@ class Login extends React.Component {
                       Password
                     </label>
                     <input
-                      type="password"
+                      type="text"
                       name="password"
                       id="password"
+                      value={this.state.user.password}
+                      onChange={this.handleChangedPassword.bind(this)}
                       placeholder="Password..."
-                      className="flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border border-transparent focus:border-gray-400 outline-none mt-4"
+                      className="flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border-2 border-gray-300 focus:border-gray-400 outline-none mt-4"
                       required
                     ></input>
                     <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 -mb-4 p-2">
@@ -79,14 +120,14 @@ class Login extends React.Component {
                   <div>
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-[#087830] hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mt-4 mb-2"
-                      onClick={login}
+                      className="w-full justify-center my-2 text-white bg-[#2F2440] hover:bg-[#800020] hover:text-white focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mt-4 mb-2"
+                      onClick={this.getInput.bind(this)}
                     >
                       Login
                     </button>
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-[#EB3C27] hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
+                      className="w-full justify-center my-2 text-white bg-[#2F2440] hover:bg-[#800020] hover:text-white focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
                     >
                       <svg
                         className="w-4 h-4 mr-2 -ml-1"
@@ -123,7 +164,7 @@ class Login extends React.Component {
                     <button
                       type="button"
                       id="signup-button"
-                      className="w-full justify-center my-2 text-white bg-[#087830] hover:bg-white hover:text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mb-2"
+                      className="w-full justify-center my-2 text-white bg-[#2F2440] hover:bg-[#800020] hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mb-2"
                       onClick={handleSignup}
                     >
                       Sign Up
@@ -132,9 +173,9 @@ class Login extends React.Component {
                 </div>
               </form>
             </div>
-          </div>
+          
         </div>
-      </div>
+      
     );
   }
 }
