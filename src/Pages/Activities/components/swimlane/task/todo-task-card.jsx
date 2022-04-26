@@ -37,7 +37,7 @@ const TodoTaskCard = ({
     cursorType = "auto"
   }
 
-  const deleteTask = (id) => {
+  const deleteTask = async (id) => {
     const tasksDocumentRef = doc(tasksCollectionRef, id)
     deleteDoc(tasksDocumentRef)
     setEditTask(false)
@@ -49,7 +49,7 @@ const TodoTaskCard = ({
       if (e.key === "Escape") {
         setEditTask(false)
       } else if (e.key === "Enter") {
-        if (newTask === "") {
+        if (newValue === "" || newValue === task.value || newValue === undefined) {
           setEditTask(false)
         } else {
           const tasksDocumentRef = doc(tasksCollectionRef, id)
@@ -66,7 +66,7 @@ const TodoTaskCard = ({
   
   const renameTaskFunctionClick = async (id, newValue) => {
     if (editTask) {
-      if (newTask === "" || newTask === task.value) {
+      if (newValue === "" || newValue === task.value || newValue === undefined) {
         setEditTask(false)
       } else {
 				const tasksDocumentRef = doc(tasksCollectionRef, id)
@@ -74,7 +74,7 @@ const TodoTaskCard = ({
 				setEditTask(false)
       }
     } else if (editDescription) {
-      if (newDescription === "" || newDescription === task.desc) {
+      if (newValue === "" || newValue === task.desc || newValue === undefined) {
         setEditDescription(false)
       } else {
         const tasksDocumentRef = doc(tasksCollectionRef, id)

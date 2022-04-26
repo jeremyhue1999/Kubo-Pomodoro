@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Input from "../../../../../Components/input"
 import TextArea from "../../../../../Components/textarea"
 import Text from "../../../../../Components/text"
@@ -12,10 +12,11 @@ const TaskForm = ({
   setShowTaskForm,
   setShowAddTaskButton,
 }) => {
-  
+  /* Values */
   const [task, setTask] = useState("") 
   const [description, setDescription] = useState("")
 
+  /* References */
   const userDocumentRef = doc(db, "testUsers", "user1")
   const tasksCollectionRef = collection(userDocumentRef, 'testTasks')
   const tasksDocumentRef = doc(tasksCollectionRef)
@@ -32,13 +33,12 @@ const TaskForm = ({
     setDescription(e.target.value)
   }
 
-
   const submitHandler = e => {
     e.preventDefault()
     if (task.length === 0 || description.length === 0) {
       console.log("No input")
     } else {
-      const highest = Math.max(...taskList.map(e => e.order), 1)
+      const highest = Math.max(...taskList.map(e => e.order), 0)
       setDoc(tasksDocumentRef, {
         order: highest + 1,
         value: task, 

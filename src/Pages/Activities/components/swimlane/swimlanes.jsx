@@ -9,15 +9,17 @@ import TodoTaskCard from './task/todo-task-card'
 import CompletedTaskCard from './task/completed-task-card'
 
 const Swimlanes = () => {
+  /* Values */
   const [taskList, setTaskList] = useState([])  
   const [sortedList, setSortedList] = useState([])
 
+  /* UI */
   const [showTaskForm, setShowTaskForm] = useState(false)
   const [showAddTaskButton, setShowAddTaskButton] = useState("block")
   const [showSaveButton, setShowSaveButton] = useState(false)
 
+  /* References */
   const userDocumentRef = doc(db, "testUsers", "user1")
-  const tasksCollectionRef = collection(userDocumentRef, 'testTasks')
 
   /*
     localStorage.setItem('tasks', JSON.stringify(taskList))
@@ -31,7 +33,7 @@ const Swimlanes = () => {
       })
     }
     getTasks()
-  }, [])
+  })
 
   useEffect(() => {
     setSortedList(taskList.sort((a, b) => a.order - b.order))
