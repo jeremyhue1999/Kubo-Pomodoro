@@ -10,10 +10,12 @@ import CompletedTaskCard from './task/completed-task-card'
 
 const Swimlanes = () => {
   const [taskList, setTaskList] = useState([])  
-  const [description, setDescription] = useState("")
+  const [sortedList, setSortedList] = useState([])
+
   const [showTaskForm, setShowTaskForm] = useState(false)
   const [showAddTaskButton, setShowAddTaskButton] = useState("block")
   const [showSaveButton, setShowSaveButton] = useState(false)
+
   const userDocumentRef = doc(db, "testUsers", "user1")
   const tasksCollectionRef = collection(userDocumentRef, 'testTasks')
 
@@ -31,12 +33,16 @@ const Swimlanes = () => {
     getTasks()
   }, [])
 
+  useEffect(() => {
+    setSortedList(taskList.sort((a, b) => a.order - b.order))
+  })
+
   const hideAddTaskButton = () => {
     setShowTaskForm(true)
     setShowAddTaskButton("hidden")
     setShowSaveButton(true)
   }
-  
+
   return (
     <div className='flex'>
       <div className='w-max bg-white border border-gray-200 drop-shadow-lg m-6 py-6 px-12 rounded'>
@@ -47,7 +53,7 @@ const Swimlanes = () => {
               className='text-slate-900 text-2xl font-semibold mb-6'
               value='Todo'
             />
-            {taskList.map((task) => {
+            {sortedList.map((task) => {
               if (task.completed === false && task.doing === false) {
                 return <TodoTaskCard
                   containerStyle='bg-slate-800'
@@ -64,9 +70,6 @@ const Swimlanes = () => {
             }
             <TaskForm 
               taskList={taskList}
-              setTaskList={setTaskList}
-              description={description}
-              setDescription={setDescription}
               showTaskForm={showTaskForm}
               setShowTaskForm={setShowTaskForm}
               setShowAddTaskButton={setShowAddTaskButton}

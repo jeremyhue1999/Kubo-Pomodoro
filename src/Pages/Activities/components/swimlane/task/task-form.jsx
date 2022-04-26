@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Input from "../../../../../Components/input"
 import TextArea from "../../../../../Components/textarea"
 import Text from "../../../../../Components/text"
@@ -7,13 +7,15 @@ import { collection, setDoc, doc } from 'firebase/firestore'
 import { db } from '../../../../../firebase-config'
 
 const TaskForm = ({
-  description,
-  setDescription,
+  taskList,
   showTaskForm,
   setShowTaskForm,
   setShowAddTaskButton,
 }) => {
-  const [task, setTask] = useState("")  
+  
+  const [task, setTask] = useState("") 
+  const [description, setDescription] = useState("")
+
   const userDocumentRef = doc(db, "testUsers", "user1")
   const tasksCollectionRef = collection(userDocumentRef, 'testTasks')
   const tasksDocumentRef = doc(tasksCollectionRef)
@@ -30,13 +32,15 @@ const TaskForm = ({
     setDescription(e.target.value)
   }
 
+
   const submitHandler = e => {
-    /* Adds a Task Object on the Firebase database */
     e.preventDefault()
     if (task.length === 0 || description.length === 0) {
       console.log("No input")
     } else {
+      const highest = Math.max(...taskList.map(e => e.order), 1)
       setDoc(tasksDocumentRef, {
+        order: highest + 1,
         value: task, 
         desc: description, 
         completed: false,
@@ -49,7 +53,7 @@ const TaskForm = ({
       setShowAddTaskButton("block")
     }
   }
-
+  
   const showAddTaskButton = () => {
     setShowTaskForm(false)
     setShowAddTaskButton("block")
