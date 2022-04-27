@@ -5,8 +5,8 @@ import Button from "../../../../Components/button"
 import Text from '../../../../Components/text'
 import Doing from '../doing/doing'
 import TaskForm from './task/task-form'
-import TodoTaskCard from './task/todo-task-card'
 import CompletedTaskCard from './task/completed-task-card'
+import TodoTaskList from './task/todo-tasklist'
 
 const Swimlanes = () => {
   /* Values */
@@ -21,23 +21,21 @@ const Swimlanes = () => {
   /* References */
   const userDocumentRef = doc(db, "testUsers", "user1")
 
-  /*
-    localStorage.setItem('tasks', JSON.stringify(taskList))
-    setTaskList(JSON.parse(localStorage.getItem('tasks')))
-  */
-
   useEffect(() => {
-    const getTasks = async () => {
+    const getTasks = () => {
       onSnapshot(collection(userDocumentRef, 'testTasks'), (snapshot) => {
         setTaskList(snapshot.docs.map((e) => ({...e.data(), id: e.id})))
       })
     }
     getTasks()
-  })
+  }, [])
 
   useEffect(() => {
-    setSortedList(taskList.sort((a, b) => a.order - b.order))
-  })
+    const sortList = () => {
+      setSortedList(taskList.sort((a, b) => a.order - b.order))
+    }
+    sortList()
+  }, [taskList])
 
   const hideAddTaskButton = () => {
     setShowTaskForm(true)
@@ -55,21 +53,10 @@ const Swimlanes = () => {
               className='text-slate-900 text-2xl font-semibold mb-6'
               value='Todo'
             />
-            {sortedList.map((task) => {
-              if (task.completed === false && task.doing === false) {
-                return <TodoTaskCard
-                  containerStyle='bg-slate-800'
-                  textStyle='text-white'
-                  task={task}
-                  key={task.id}
-                  taskList={taskList}
-                  setTaskList={setTaskList}
-                  showSaveButton={showSaveButton}
-                  setShowSaveButton={setShowSaveButton}
-                  setShowAddTaskButton={setShowAddTaskButton}
-                />
-              }})
-            }
+            <TodoTaskList 
+              sortedList={sortedList}
+              setShowAddTaskButton={setShowAddTaskButton}
+            />
             <TaskForm 
               taskList={taskList}
               showTaskForm={showTaskForm}

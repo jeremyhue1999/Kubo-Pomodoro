@@ -3,14 +3,13 @@ import { collection, doc, onSnapshot } from 'firebase/firestore'
 import { db } from '../../../../../firebase-config'
 import Subtask from "./subtask"
 
-const SubtaskList = ({ currentTask }) => {
-  /* Values */
+const SubtaskList = ({ taskID }) => {
+
   const [subtaskList, setSubtaskList] = useState()
 
-  /* References */
   const userDocumentRef = doc(db, "testUsers", "user1")
   const tasksCollectionRef = collection(userDocumentRef, 'testTasks')
-  const tasksDocumentRef = doc(tasksCollectionRef, currentTask.id)
+  const tasksDocumentRef = doc(tasksCollectionRef, taskID)
 
   useEffect(() => {
     const getSubtasks = async () => {
@@ -21,7 +20,7 @@ const SubtaskList = ({ currentTask }) => {
     getSubtasks()
   }, [])
 
-  if (currentTask == null || subtaskList == null) {
+  if (taskID == null || subtaskList == null) {
     return null
   } else {
     return (
@@ -30,10 +29,8 @@ const SubtaskList = ({ currentTask }) => {
           return <Subtask 
             subtask={subtask}
             key={subtask.id}
-            currentTask={currentTask}
-            subtaskList={subtaskList}
-            setSubtaskList={setSubtaskList}
-            />
+            taskID={taskID}
+          />
         })}
       </ul>
     )

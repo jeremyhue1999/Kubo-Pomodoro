@@ -2,7 +2,7 @@ import { useState } from "react"
 import Input from "../../../../../Components/input"
 import Button from "../../../../../Components/button"
 import Text from "../../../../../Components/text"
-import CreateSubtasks from "../subtask/create-subtasks"
+import SubtaskForm from "../subtask/subtask-form"
 import TextArea from "../../../../../Components/textarea"
 import { AiOutlineEdit } from "react-icons/ai"
 import { BsCheckSquare } from "react-icons/bs"
@@ -12,11 +12,10 @@ import { db } from '../../../../../firebase-config'
 
 const TodoTaskCard = ({
   task,
-  taskList,
   setShowAddTaskButton,
 }) => {
 	/* UI */
-	const [showCreateSubtasks, setShowCreateSubtasks] = useState(false)
+	const [showSubtaskForm, setShowSubtaskForm] = useState(false)
 	const [editTask, setEditTask] = useState(false)
   const [editDescription, setEditDescription] = useState(false)
   const [editMode, setEditMode] = useState(false)
@@ -29,66 +28,55 @@ const TodoTaskCard = ({
 	/* Firebase references */
 	const userDocumentRef = doc(db, "testUsers", "user1")
   const tasksCollectionRef = collection(userDocumentRef, 'testTasks')
+  const tasksDocumentRef = doc(tasksCollectionRef, task.id)
 
   let cursorType = ""
-  if (!showCreateSubtasks) {
+  if (!showSubtaskForm) {
     cursorType = "pointer"
   } else {
     cursorType = "auto"
   }
 
-  const deleteTask = async (id) => {
-    const tasksDocumentRef = doc(tasksCollectionRef, id)
+  const deleteTask = () => {
     deleteDoc(tasksDocumentRef)
     setEditTask(false)
     showAddTaskButton()
   }
 
-	const renameTaskFunction = async (e, id, newValue) => {
+  const renameTaskHandler = () => {
     if (editTask) {
-      if (e.key === "Escape") {
-        setEditTask(false)
-      } else if (e.key === "Enter") {
-        if (newValue === "" || newValue === task.value || newValue === undefined) {
-          setEditTask(false)
-        } else {
-          const tasksDocumentRef = doc(tasksCollectionRef, id)
-       		updateDoc(tasksDocumentRef, {value: newValue})
-          setEditTask(false)
-        }
-      }
-    } else if (editDescription) {
-      if (e.key === "Escape") {
-        setEditDescription(false)
-      }
-    }
-  }
-  
-  const renameTaskFunctionClick = async (id, newValue) => {
-    if (editTask) {
-      if (newValue === "" || newValue === task.value || newValue === undefined) {
+      if (newTask === "" || newTask === task.value || newTask === undefined) {
         setEditTask(false)
       } else {
-				const tasksDocumentRef = doc(tasksCollectionRef, id)
-        updateDoc(tasksDocumentRef, {value: newValue})
-				setEditTask(false)
+        updateDoc(tasksDocumentRef, {value: newTask})
+        setEditTask(false)
       }
     } else if (editDescription) {
-      if (newValue === "" || newValue === task.desc || newValue === undefined) {
+      if (newDescription === "" || newDescription === task.desc || newDescription === undefined) {
         setEditDescription(false)
       } else {
-        const tasksDocumentRef = doc(tasksCollectionRef, id)
-        updateDoc(tasksDocumentRef, {desc: newValue})
+        updateDoc(tasksDocumentRef, {desc: newDescription})
         setEditDescription(false)
       }
     }
   }
 
-  const getNewTask = (e) => {
+  const escapeKeyHandler = e => {
+    if (e.key === 'Escape') {
+      if (editTask) {
+        setEditTask(false)
+      } else if (editDescription) {
+        setEditDescription(false)
+      }
+    }
+  }
+
+
+  const getNewTask = e => {
     setNewTask(e.target.value)
   }
 
-	const getNewDescription = (e) => {
+	const getNewDescription = e => {
     setNewDescription(e.target.value)
   }
 
@@ -98,14 +86,14 @@ const TodoTaskCard = ({
   }
 
   const hideAddTaskButton = () => {
-    setShowCreateSubtasks(true)
+    setShowSubtaskForm(true)
     setShowAddTaskButton("hidden")
     setEditMode(true)
     setTaskID(task.id)
   }
 
   const showAddTaskButton = () => {
-    setShowCreateSubtasks(false)
+    setShowSubtaskForm(false)
     setShowAddTaskButton("block")
     setEditMode(false)
     setEditTask(false)
@@ -129,7 +117,7 @@ const TodoTaskCard = ({
         onClick={hideAddTaskButton}
       >
         {editTask 
-				?	<div className="flex justify-between items-center">
+				?	<form className="flex justify-between items-center" onSubmit={renameTaskHandler}>
             <Input
               className="my-1 placeholder:text-lg w-full"
               name="Edit Task"
@@ -137,15 +125,15 @@ const TodoTaskCard = ({
               type="text"
               placeholder={task.value}
               onChange={getNewTask}
-              onKeyDown={(e) => {renameTaskFunction(e, task.id, newTask)}}
+              onKeyDown={escapeKeyHandler}
               required={true}
             />
             <BsCheckSquare
               className="cursor-pointer fill-green-500 hover:fill-green-700 ml-2"
               size={42}
-              onClick={() => {renameTaskFunctionClick(task.id, newTask)}}
+              onClick={renameTaskHandler}
             />
-          </div>
+          </form>
         : <div>
             {editMode 
 						? <div className="flex items-center w-full break-all">
@@ -172,12 +160,12 @@ const TodoTaskCard = ({
               type="text"
               placeholder={task.desc}
               onChange={getNewDescription}
-              onKeyDown={(e) => {renameTaskFunction(e, task.id, newTask)}}
+              onKeyDown={escapeKeyHandler}
               required={true}
             />
             <Button
               className="cursor-pointer flex justify-center bg-slate-800 border-2 border-green-500 hover:border-green-700 rounded w-full"
-              onClick={() => {renameTaskFunctionClick(task.id, newDescription)}}
+              onClick={renameTaskHandler}
             >
 							<VscCheck
 								className="fill-green-500 hover:fill-green-700 py-1"
@@ -204,9 +192,8 @@ const TodoTaskCard = ({
           </div>
         }
       </div>
-      <CreateSubtasks
-        taskList={taskList}
-        showCreateSubtasks={showCreateSubtasks}
+      <SubtaskForm
+        showSubtaskForm={showSubtaskForm}
         onClose={resetID}
         taskID={taskID}
       />
@@ -215,7 +202,7 @@ const TodoTaskCard = ({
           <Text
             className="text-slate-900 hover:text-slate-800 text-lg font-bold"
             value="DELETE TASK"
-            onClick={() => {deleteTask(task.id)}}
+            onClick={deleteTask}
           />
         </Button>
       }

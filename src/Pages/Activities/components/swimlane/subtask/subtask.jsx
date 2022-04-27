@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Input from "../../../../../Components/input"
 import Text from "../../../../../Components/text"
 import { VscDiffRemoved } from "react-icons/vsc"
@@ -6,59 +6,38 @@ import { AiOutlineEdit } from "react-icons/ai"
 import { BsCheckSquare } from "react-icons/bs"
 import { MdMoreTime } from "react-icons/md"
 import LessTime from '../../../../../images/less-time'
-import { collection, doc, updateDoc, arrayUnion, arrayRemove, getDoc, setDoc } from 'firebase/firestore'
+import { collection, doc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore'
 import { db } from '../../../../../firebase-config'
-
 
 const Subtask = ({ 
   subtask,
-  currentTask
+  taskID
 }) => {
 
-  /* UI */
   const [showEditInput, setShowEditInput] = useState(false)
 
-  /* Values */
-  let { id: subtaskID, value: subtaskValue } = subtask
-  const [currentSubtask, setCurrentSubtask] = useState({
-    id: '', 
-    value: '', 
-    completed: false
-  })
+  let { id: subtaskID, value: subtaskValue, completed: subtaskCompleted } = subtask
   const [newSubtask, setNewSubtask] = useState({
     id: '', 
     value: '', 
     completed: false
   })
 
-  /* References */
   const userDocumentRef = doc(db, "testUsers", "user1")
   const tasksCollectionRef = collection(userDocumentRef, 'testTasks')
+  const tasksDocumentRef = doc(tasksCollectionRef, taskID)
 
   const deleteSubtask = () => {
-    const tasksDocumentRef = doc(tasksCollectionRef, currentTask.id)
     updateDoc(tasksDocumentRef, {
       subtasks: arrayRemove(subtask)
       }
     )
   }
 
-  useEffect(() => {
-    const getCurrentSubtask = async () => {
-      const tasksDocumentRef = doc(tasksCollectionRef, currentTask.id)
-      const docSnap = await getDoc(tasksDocumentRef)
-      const data = docSnap.data().subtasks
-      const current_subtask = data.filter(e => e.id === subtaskID)
-      setCurrentSubtask(current_subtask[0])
-    }
-    getCurrentSubtask()
-  }, [setCurrentSubtask])
-
-  const renameSubtaskClick = () => {
+  const renameSubtaskHandler = () => {
     if (newSubtask.value === '' || newSubtask.value == subtaskValue) {
       setShowEditInput(false)
     } else {
-      const tasksDocumentRef = doc(tasksCollectionRef, currentTask.id)
       updateDoc(tasksDocumentRef, {
         subtasks: arrayRemove(subtask)
         }
@@ -71,44 +50,28 @@ const Subtask = ({
     }
   }
 
-  const renameSubtaskKey = e => {
+  const escapeKeyHandler = e => {
     if (e.key === 'Escape') {
       setShowEditInput(false)
-    } else if (e.key === 'Enter') {
-      if (newSubtask.value === '' || newSubtask.value == subtaskValue) {
-        setShowEditInput(false)
-      } else {
-        const tasksDocumentRef = doc(tasksCollectionRef, currentTask.id)
-        updateDoc(tasksDocumentRef, {
-          subtasks: arrayRemove(subtask)
-          }
-        )
-        updateDoc(tasksDocumentRef, {
-            subtasks: arrayUnion(newSubtask)
-          }
-        )
-        setShowEditInput(false)
-      }
-    }
+    } 
   }
 
   const getNewSubtask = e => {
     setNewSubtask({
-      id: currentSubtask.id, 
+      id: subtaskID, 
       value: e.target.value, 
-      completed: currentSubtask.completed
+      completed: subtaskCompleted
     })
   }
   
   const clickSubtask = () => { 
-    /* Shows the edit input of the subtask */
     setShowEditInput(true)
   } 
 
   return (
     <div className="flex w-full">
       {showEditInput
-      ? <div className="flex justify-between items-center my-4 w-full">
+      ? <form className="flex justify-between items-center my-4 w-full" onSubmit={renameSubtaskHandler}>
           <Input
             className="mr-2 placeholder:text-md w-full"
             name="Edit Subtask"
@@ -116,16 +79,15 @@ const Subtask = ({
             type="text"
             placeholder={subtaskValue}
             onChange={getNewSubtask}
-            onKeyDown={renameSubtaskKey}
+            onKeyDown={escapeKeyHandler}
             required={true}
           />
           <BsCheckSquare
             className="cursor-pointer fill-green-500 hover:fill-green-700 " 
             size={42}
-            onClick={renameSubtaskClick} 
+            onClick={renameSubtaskHandler} 
           />
-        </div>
-      
+        </form>
       : <div className="w-full mt-4 mb-2">
           <div className="flex justify-between items-center mb-1">
             <li 
