@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { BsCalendarPlus } from "react-icons/bs"
-import Button from "../../../../Components/button"
-import Input from "../../../../Components/input"
+import { Button, Input } from "../../../../Components"
 
 const DateDropdownForm = () => {
   

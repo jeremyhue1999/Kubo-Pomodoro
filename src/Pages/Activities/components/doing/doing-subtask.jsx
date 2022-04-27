@@ -1,4 +1,4 @@
-import Text from "../../../../Components/text"
+import { Text } from "../../../../Components"
 
 const DoingSubtask = ({
   value

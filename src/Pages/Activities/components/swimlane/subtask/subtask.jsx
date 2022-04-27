@@ -1,6 +1,5 @@
 import { useState } from "react"
-import Input from "../../../../../Components/input"
-import Text from "../../../../../Components/text"
+import { Input, Text } from "../../../../../Components"
 import { VscDiffRemoved } from "react-icons/vsc"
 import { AiOutlineEdit } from "react-icons/ai"
 import { BsCheckSquare } from "react-icons/bs"

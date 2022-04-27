@@ -1,12 +1,9 @@
 import { useState } from "react"
-import Input from "../../../../../Components/input"
-import Button from "../../../../../Components/button"
-import Text from "../../../../../Components/text"
-import SubtaskForm from "../subtask/subtask-form"
-import TextArea from "../../../../../Components/textarea"
+import { Button, Input, Text, TextArea } from "../../../../../Components"
 import { AiOutlineEdit } from "react-icons/ai"
 import { BsCheckSquare } from "react-icons/bs"
 import { VscCheck } from "react-icons/vsc"
+import SubtaskForm from "../subtask/subtask-form"
 import { doc, updateDoc, deleteDoc } from 'firebase/firestore'
 import { tasksColRef } from '../../../../../firebase-db'
 

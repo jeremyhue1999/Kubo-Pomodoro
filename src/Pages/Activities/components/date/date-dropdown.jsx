@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Text from "../../../../Components/text"
+import { Text } from "../../../../Components"
 import { VscChevronUp, VscChevronDown } from "react-icons/vsc"
 import DateDropdownForm from "./date-dropdown-form"
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import Text from '../../../../Components/text'
+import { Text } from '../../../../Components'
 import DoingSubtask from './doing-subtask'
 import { BsStopFill, BsPlayFill, BsPauseFill, BsSkipEndFill } from 'react-icons/bs'
 

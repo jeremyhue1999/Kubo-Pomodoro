@@ -1,8 +1,6 @@
 import { useState } from "react"
-import Button from "../../../../../Components/button"
-import Input from "../../../../../Components/input"
+import { Button, Input, Text } from "../../../../../Components"
 import SubtaskList from "./subtask-list"
-import Text from "../../../../../Components/text"
 import { VscChevronUp } from "react-icons/vsc"
 import { VscAdd } from "react-icons/vsc"
 import { doc, arrayUnion, updateDoc } from 'firebase/firestore'

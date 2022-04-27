@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
-import { collection, doc, onSnapshot } from 'firebase/firestore'
-import Button from "../../../../Components/button"
-import Text from '../../../../Components/text'
+import { Button, Text } from "../../../../Components"
 import Doing from '../doing/doing'
 import TaskForm from './task/task-form'
 import CompletedTaskCard from './task/completed-task-card'
 import TodoTaskList from './task/todo-tasklist'
+import { collection, onSnapshot } from 'firebase/firestore'
 import { usersDocRef } from '../../../../firebase-db'
 
 const Swimlanes = () => {

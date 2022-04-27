@@ -1,8 +1,5 @@
 import { useState } from "react"
-import Input from "../../../../../Components/input"
-import TextArea from "../../../../../Components/textarea"
-import Text from "../../../../../Components/text"
-import Button from "../../../../../Components/button"
+import { Button, Input, Text, TextArea } from "../../../../../Components"
 import { setDoc, doc } from 'firebase/firestore'
 import { tasksColRef } from '../../../../../firebase-db'
 
