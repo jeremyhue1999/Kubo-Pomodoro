@@ -26,7 +26,7 @@ const Signup = () => {
     
 
     return (
-      <div className="flex flex-col items-center justify-center w-screen h-screen bg-red-900 ">
+      <div className="flex flex-col items-center justify-center w-full h-screen bg-slate-800">  
 
             <img
                 className="logo object-scale-down w-40 h-fit mb-4 cursor-pointer"
@@ -35,13 +35,13 @@ const Signup = () => {
             />
 
             {/*Content*/}
-            <div className="flex flex-col bg-white rounded-2xl shadow-md shadow-white w-100">
-              <h1 className=" text-4xl font-bold text-black text-center mt-4">
+            <div className="flex flex-col items-center text-slate-800 bg-white shadow-md shadow-white w-100">
+              <h1 className=" text-4xl font-bold text-center mt-4">
                 SIGNUP
               </h1>
 
               {/*Signup Form*/}
-              <form className="-space-y p-6 justify-center">
+              <form className="-space-y p-6 justify-center flex-wrap ">
                 <div className="-space-y-px ">
                   <div className="flex relative h-48px group justify-center items-center">
                     <label htmlFor="email" className="sr-only ">
@@ -122,14 +122,14 @@ const Signup = () => {
                   <div className="pt-4">
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-green-700 hover:bg-black hover:text-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center"
+                      className="w-full justify-center my-2 text-white bg-orange-500 hover:bg-slate-800 hover:text-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center"
                       onClick={getInput}
                     >
                       Signup
                     </button>
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-red-500 hover:bg-black hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+                      className="w-full justify-center my-2 text-white bg-red-500 hover:bg-slate-800 hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
                       onClick={handleCancel}
                     >
                       Cancel

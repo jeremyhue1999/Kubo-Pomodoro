@@ -31,7 +31,7 @@ const Login = () => {
 
     return (
     
-        <div className="flex flex-col flex-wrap items-center justify-center w-screen h-screen bg-red-900">
+        <div className="flex flex-col flex-wrap items-center justify-center w-screen h-screen bg-slate-800">
           
             <img
                 className="logo object-scale-down w-40 h-fit mb-4 cursor-pointer"
@@ -40,7 +40,8 @@ const Login = () => {
             />
           
             {/*Content*/}
-            <div className="flex flex-col bg-white rounded-2xl shadow-md text-black shadow-white w-100">
+            <div className="flex flex-col bg-white shadow-md text-slate-800 shadow-white w-100">
+        
               <h1 className=" text-4xl font-bold  text-center mt-4">
                 LOGIN
               </h1>
@@ -89,14 +90,14 @@ const Login = () => {
                   <div>
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-green-700 hover:bg-black hover:text-white focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mt-4 mb-2"
+                      className="w-full justify-center my-2 text-white bg-orange-500 hover:bg-slate-800 hover:text-white focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mt-4 mb-2"
                       onClick={getInput}
                     >
                       Login
                     </button>
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-green-700 hover:bg-black hover:text-white focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
+                      className="w-full justify-center my-2 text-white bg-orange-500 hover:bg-slate-800 hover:text-white focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
                     >
                       <svg
                         className="w-4 h-4 mr-2 -ml-1"
@@ -119,7 +120,7 @@ const Login = () => {
 
                   <div className="text-md text-center">
                     <button
-                      className="font-medium text-black hover:underline "
+                      className="font-medium hover:underline "
                       onClick={handleForgotPassword}
                     >
                       Forgot Password?
@@ -127,13 +128,13 @@ const Login = () => {
                   </div>
 
                   <div className="pb-4 ">
-                    <h3 className=" mt-4 text-md text-center text-black">
+                    <h3 className=" mt-4 text-md text-center">
                       Don't have an Account?
                     </h3>
                     <button
                       type="button"
                       id="signup-button"
-                      className="w-full justify-center my-2 text-white bg-green-700 hover:bg-black hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mb-2"
+                      className="w-full justify-center my-2 text-white bg-orange-500 hover:bg-slate-800 hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mb-2"
                       onClick={handleSignup}
                     >
                       Sign Up

@@ -14,7 +14,7 @@ const ForgotPassword = () => {
     };
 
     return (
-      <div className="flex flex-col items-center justify-center w-screen h-screen bg-red-900 ">
+      <div className="flex flex-col items-center justify-center w-screen h-screen bg-slate-800 ">
 
         <img
             className="logo object-scale-down w-40 h-fit mb-4 cursor-pointer"
@@ -23,12 +23,11 @@ const ForgotPassword = () => {
         />
 
         {/*Content*/}
-        <div className="flex flex-col bg-white rounded-2xl shadow-md shadow-white w-100"> 
-              <h1 className=" text-4xl font-bold text-black text-center mt-4 mr-2 ml-2">
+        <div className="flex flex-col bg-white text-slate-800 shadow-md shadow-white w-100"> 
+              <h1 className=" text-4xl font-bold  text-center mt-4 mr-2 ml-2">
                 FORGOT PASSWORD
               </h1>
-
-              <form className="pt-6 justify-center -space-y">
+              <form className=" justify-center-space-y">
                 <div className="-space-y-px p-4">
                   <div className="flex relative  h-48px group justify-center items-center">
                     <label htmlFor="email" className="sr-only ">
@@ -50,14 +49,14 @@ const ForgotPassword = () => {
                   <div>
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-green-700 hover:bg-black hover:text-whitefocus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mb-2 "
+                      className="w-full justify-center my-2 text-white bg-orange-500 hover:bg-slate-800 hover:text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mb-2 "
                       onClick={handleSendCode}
                     >
                       Send Code
                     </button>
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-red-500 hover:bg-black hover:text-white focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mb-2"
+                      className="w-full justify-center my-2 text-white bg-red-500 hover:bg-slate-800 hover:text-white focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mb-2"
                       onClick={handleCancel}
                     >
                       Cancel
