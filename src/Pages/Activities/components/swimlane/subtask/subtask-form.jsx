@@ -5,8 +5,8 @@ import SubtaskList from "./subtask-list"
 import Text from "../../../../../Components/text"
 import { VscChevronUp } from "react-icons/vsc"
 import { VscAdd } from "react-icons/vsc"
-import { collection, doc, arrayUnion, updateDoc } from 'firebase/firestore'
-import { db } from '../../../../../firebase-config'
+import { doc, arrayUnion, updateDoc } from 'firebase/firestore'
+import { tasksColRef } from '../../../../../firebase-db'
 import { v4 as uuidv4 } from 'uuid'
 
 const SubtaskForm = ({ showSubtaskForm, taskID, onClose }) => {
@@ -17,9 +17,6 @@ const SubtaskForm = ({ showSubtaskForm, taskID, onClose }) => {
     completed: false
   })
 
-  const userDocumentRef = doc(db, "testUsers", "user1")
-  const tasksCollectionRef = collection(userDocumentRef, 'testTasks')
-
   if (!showSubtaskForm) {
     return null
   }
@@ -29,7 +26,7 @@ const SubtaskForm = ({ showSubtaskForm, taskID, onClose }) => {
     if (subtask.value === '') {
       console.log("No Input")
     } else {
-      const tasksDocumentRef = doc(tasksCollectionRef, taskID)
+      const tasksDocumentRef = doc(tasksColRef, taskID)
       updateDoc(tasksDocumentRef, {
         subtasks: arrayUnion(subtask)
       })

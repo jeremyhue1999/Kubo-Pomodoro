@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import { collection, doc, onSnapshot } from 'firebase/firestore'
-import { db } from '../../../../firebase-config'
 import Button from "../../../../Components/button"
 import Text from '../../../../Components/text'
 import Doing from '../doing/doing'
 import TaskForm from './task/task-form'
 import CompletedTaskCard from './task/completed-task-card'
 import TodoTaskList from './task/todo-tasklist'
+import { usersDocRef } from '../../../../firebase-db'
 
 const Swimlanes = () => {
   /* Values */
@@ -18,12 +18,9 @@ const Swimlanes = () => {
   const [showAddTaskButton, setShowAddTaskButton] = useState("block")
   const [showSaveButton, setShowSaveButton] = useState(false)
 
-  /* References */
-  const userDocumentRef = doc(db, "testUsers", "user1")
-
   useEffect(() => {
     const getTasks = () => {
-      onSnapshot(collection(userDocumentRef, 'testTasks'), (snapshot) => {
+      onSnapshot(collection(usersDocRef, 'tasks'), (snapshot) => {
         setTaskList(snapshot.docs.map((e) => ({...e.data(), id: e.id})))
       })
     }

@@ -6,8 +6,8 @@ import { AiOutlineEdit } from "react-icons/ai"
 import { BsCheckSquare } from "react-icons/bs"
 import { MdMoreTime } from "react-icons/md"
 import LessTime from '../../../../../images/less-time'
-import { collection, doc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore'
-import { db } from '../../../../../firebase-config'
+import { doc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore'
+import { tasksColRef } from '../../../../../firebase-db'
 
 const Subtask = ({ 
   subtask,
@@ -23,9 +23,7 @@ const Subtask = ({
     completed: false
   })
 
-  const userDocumentRef = doc(db, "testUsers", "user1")
-  const tasksCollectionRef = collection(userDocumentRef, 'testTasks')
-  const tasksDocumentRef = doc(tasksCollectionRef, taskID)
+  const tasksDocumentRef = doc(tasksColRef, taskID)
 
   const deleteSubtask = () => {
     updateDoc(tasksDocumentRef, {

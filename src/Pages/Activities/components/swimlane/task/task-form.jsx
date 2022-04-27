@@ -3,8 +3,8 @@ import Input from "../../../../../Components/input"
 import TextArea from "../../../../../Components/textarea"
 import Text from "../../../../../Components/text"
 import Button from "../../../../../Components/button"
-import { collection, setDoc, doc } from 'firebase/firestore'
-import { db } from '../../../../../firebase-config'
+import { setDoc, doc } from 'firebase/firestore'
+import { tasksColRef } from '../../../../../firebase-db'
 
 const TaskForm = ({
   taskList,
@@ -17,9 +17,7 @@ const TaskForm = ({
   const [description, setDescription] = useState("")
 
   /* References */
-  const userDocumentRef = doc(db, "testUsers", "user1")
-  const tasksCollectionRef = collection(userDocumentRef, 'testTasks')
-  const tasksDocumentRef = doc(tasksCollectionRef)
+  const tasksDocumentRef = doc(tasksColRef)
 
   if (!showTaskForm) {
     return null

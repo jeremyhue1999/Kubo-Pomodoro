@@ -7,8 +7,8 @@ import TextArea from "../../../../../Components/textarea"
 import { AiOutlineEdit } from "react-icons/ai"
 import { BsCheckSquare } from "react-icons/bs"
 import { VscCheck } from "react-icons/vsc"
-import { collection, doc, updateDoc, deleteDoc } from 'firebase/firestore'
-import { db } from '../../../../../firebase-config'
+import { doc, updateDoc, deleteDoc } from 'firebase/firestore'
+import { tasksColRef } from '../../../../../firebase-db'
 
 const TodoTaskCard = ({
   task,
@@ -26,9 +26,7 @@ const TodoTaskCard = ({
   const [taskID, setTaskID] = useState()
 
 	/* Firebase references */
-	const userDocumentRef = doc(db, "testUsers", "user1")
-  const tasksCollectionRef = collection(userDocumentRef, 'testTasks')
-  const tasksDocumentRef = doc(tasksCollectionRef, task.id)
+  const tasksDocumentRef = doc(tasksColRef, task.id)
 
   let cursorType = ""
   if (!showSubtaskForm) {

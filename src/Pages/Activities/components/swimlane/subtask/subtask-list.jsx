@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react"
-import { collection, doc, onSnapshot } from 'firebase/firestore'
-import { db } from '../../../../../firebase-config'
+import { doc, onSnapshot } from 'firebase/firestore'
+import { tasksColRef } from '../../../../../firebase-db'
 import Subtask from "./subtask"
 
 const SubtaskList = ({ taskID }) => {
 
   const [subtaskList, setSubtaskList] = useState()
 
-  const userDocumentRef = doc(db, "testUsers", "user1")
-  const tasksCollectionRef = collection(userDocumentRef, 'testTasks')
-  const tasksDocumentRef = doc(tasksCollectionRef, taskID)
+  const tasksDocumentRef = doc(tasksColRef, taskID)
 
   useEffect(() => {
     const getSubtasks = async () => {
