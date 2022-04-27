@@ -7,13 +7,13 @@ export default function SoundSettings({showSounds, onClose}) {
     }
 
     return (
-        <div className="min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none">
+        <div className="min-w-screen h-screen animated fadeIn faster backdrop-blur-md fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none">
             <div className="relative p-4 w-min max-w-2xl h-full md:h-auto">
                 {/*Popup Component*/}
-                <div className="relative bg-white rounded-lg shadow dark:bg-[#EB3C27]">
+                <div className="relative bg-orange-500">
 
                     {/*Popup Header*/}
-                    <div className="flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600">
+                    <div className="flex justify-between items-start p-5 ">
                         <h3 class="text-xl font-semibold text-white lg:text-2xl dark:text-white">
                             Sounds and Notifications
                         </h3>
@@ -23,13 +23,13 @@ export default function SoundSettings({showSounds, onClose}) {
                     </div>
 
                     {/*Popup Content*/}
-                    <div className="flex flex-col flex-wrap justify-center items-center p-5 bg-gray-300">
+                    <div className="flex flex-col flex-wrap justify-center items-center p-5 bg-slate-800 text-white">
                         
                         {/*Enable/Disable Sound */}
                         <div className="flex flex-row gap-64 items-center">
                             <p className="text-md leading-relaxed">Enable Sound</p>
                             {/*Toggle Switch Container*/}
-                            <div className="md:w-14 md:h-7 w-12 h-6 flex items-center bg-[#EB3C27] rounded-full p-1 cursor-pointer">
+                            <div className="md:w-14 md:h-7 w-12 h-6 flex items-center bg-green-700 rounded-full p-1 cursor-pointer">
                                 {/* Toggle Switch */}
                                 <div className = "bg-white md:w-6 md:h-6 h-5 w-5 rounded-full shadow-md transform"></div>
                             </div>
@@ -38,7 +38,7 @@ export default function SoundSettings({showSounds, onClose}) {
                         {/*Sound Dropdown*/}
                         <div className="dropdown relative w-full ">
                             <button
-                                className="dropdown-toggle px-6 py-2.5 bg-[#087830] text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-white  hover:text-black hover:shadow-lg  active:bg-[#EB3C27] active:shadow-lg active:text-white transition duration-150 ease-in-out flex justify-center whitespace-nowrap w-full mt-4"
+                                className="dropdown-toggle px-6 py-2.5 bg-green-700 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-white  hover:text-black hover:shadow-lg  active:bg-[#EB3C27] active:shadow-lg active:text-white transition duration-150 ease-in-out flex justify-center whitespace-nowrap w-full mt-4"
                                 type="button"
                                 id="dropdown-sound-menu"
                                 data-bs-toggle="dropdown"
@@ -74,23 +74,23 @@ export default function SoundSettings({showSounds, onClose}) {
                         <div className="flex gap-64 items-center mt-4">
                             <p className="text-base">Enable Notifications</p>
                             {/*Toggle Switch Container*/}
-                            <div id="notification-toggle" className="md:w-14 md:h-7 w-12 h-6 flex items-center bg-[#EB3C27] rounded-full p-1 cursor-pointer">
+                            <div id="notification-toggle" className="md:w-14 md:h-7 w-12 h-6 flex items-center bg-green-700 rounded-full p-1 cursor-pointer">
                                 {/* Toggle Switch */}
                                 <div className = "bg-white md:w-6 md:h-6 h-5 w-5 rounded-full shadow-md transform"></div>
                             </div>
                         </div>
 
                         <div className="relative mt-4">
-                            <button className="w-full justify-center my-2 text-white bg-black hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55">
+                            <button className="w-full justify-center my-2 text-white bg-green-700 hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55">
                                 Apply To Work Time
                             </button>
-                            <button className="w-full justify-center my-2 text-white bg-black hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55">
+                            <button className="w-full justify-center my-2 text-white bg-green-700 hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55">
                                 Apply To Sort Break
                             </button>
-                            <button className="w-full justify-center my-2 text-white bg-black hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55">
+                            <button className="w-full justify-center my-2 text-white bg-green-700 hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55">
                                 Apply To Long Break
                             </button>
-                            <button className="w-full justify-center my-2 text-white bg-gray-600 hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55" onClick={onClose}>
+                            <button className="w-full justify-center my-2 text-white bg-red-500 hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55" onClick={onClose}>
                                 Cancel
                             </button>
                         </div>

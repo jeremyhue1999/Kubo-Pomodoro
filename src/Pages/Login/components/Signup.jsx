@@ -35,7 +35,7 @@ const Signup = () => {
             />
 
             {/*Content*/}
-            <div className="flex flex-col items-center text-slate-800 bg-white shadow-md shadow-white w-100">
+            <div className="flex flex-col items-center text-slate-800 bg-white shadow-md shadow-white w-max">
               <h1 className=" text-4xl font-bold text-center mt-4">
                 SIGNUP
               </h1>

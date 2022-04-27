@@ -40,7 +40,7 @@ const Login = () => {
             />
           
             {/*Content*/}
-            <div className="flex flex-col bg-white shadow-md text-slate-800 shadow-white w-100">
+            <div className="flex flex-col bg-white shadow-md text-slate-800 shadow-white w-max-2xl">
         
               <h1 className=" text-4xl font-bold  text-center mt-4">
                 LOGIN

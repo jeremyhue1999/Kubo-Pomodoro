@@ -9,13 +9,13 @@ export default function TimerSettings({ showTimer, onClose }) {
     }
 
     return (
-        <div className="min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none">
-            <div className="relative p-4 w-full max-w-2xl h-full md:h-auto">
+        <div className="min-w-screen h-screen animated fadeIn faster backdrop-blur-md fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none">
+            <div className="relative w-max h-full md:h-auto">
                 {/*Popup Component*/}
-                <div className="relative bg-white rounded-lg shadow dark:bg-[#EB3C27]">
+                <div className="relative dark:bg-orange-500">
 
                     {/*Popup Header*/}
-                    <div className="flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600">
+                    <div className="flex justify-between items-start p-5 border-b border-white ">
                         <h3 class="text-xl font-semibold text-white lg:text-2xl dark:text-white">
                             Timer Settings
                         </h3>
@@ -25,7 +25,7 @@ export default function TimerSettings({ showTimer, onClose }) {
                     </div>
 
                     {/*Popup Content*/}
-                    <div className="flex flex-col flex-wrap justify-center  p-5 bg-gray-300">
+                    <div className="flex flex-col flex-wrap justify-center  p-5 bg-slate-800 text-white">
                         
                         {/*Timer Settings*/}
                         <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8">
@@ -48,10 +48,10 @@ export default function TimerSettings({ showTimer, onClose }) {
                         </div>
 
                         <div className="relative mt-4">
-                            <button className="w-full justify-center my-2 text-white bg-black hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55">
+                            <button className="w-full justify-center my-2 text-white bg-green-700 hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55">
                                 Save
                             </button>
-                            <button className="w-full justify-center my-2 text-white bg-gray-600 hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55" onClick={onClose}>
+                            <button className="w-full justify-center my-2 text-white bg-red-500 hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55" onClick={onClose}>
                                 Cancel
                             </button>
                         </div>

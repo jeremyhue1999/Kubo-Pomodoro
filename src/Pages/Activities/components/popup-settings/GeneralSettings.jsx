@@ -1,26 +1,23 @@
 import React from "react";
-import { render } from "react-dom";
+import {useState} from "react";
 import UpdatePasswordPopup from "./UpdatePasswordPopup";
 
 export default function GeneralSettings({ showGeneral, onClose }) {
 
+    const [showUpdatePassword, setShowUpdatePassword] = useState(false);
+    
     if (!showGeneral) {
         return null
     }
-    
-    const handleUpdatePassword = () => {
-        render(<UpdatePasswordPopup />, document.getElementById("root"));
-    }
-
 
     return (
-        <div className="min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none">
-            <div className="relative p-4 w-min max-w-2xl h-full md:h-auto">
+        <div className="min-w-screen h-screen animated fadeIn faster  fixed backdrop-blur-md left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none">
+            <div className="relative p-4 w-max max-w-2xl h-full md:h-auto">
                 {/*Popup Component*/}
-                <div className="relative bg-white rounded-lg shadow dark:bg-[#EB3C27]">
+                <div className="relative shadow-xl shadow-white bg-orange-500 ">
 
                     {/*Popup Header*/}
-                    <div className="flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600">
+                    <div className="flex justify-between items-start p-5 gap-24 border-b border-white">
                         <h3 class="text-xl font-semibold text-white lg:text-2xl dark:text-white">
                             General Settings
                         </h3>
@@ -30,22 +27,11 @@ export default function GeneralSettings({ showGeneral, onClose }) {
                     </div>
 
                     {/*Popup Content*/}
-                    <div className="flex flex-col flex-wrap justify-center  p-5 bg-gray-300">
+                    <div className="flex flex-col flex-wrap justify-center  p-5 bg-slate-800">
                         
-                        {/*Enable/Disable Dark Mode */}
-                        <div className="flex flex-row gap-64 items-center">
-                            <p className="text-md leading-relaxed">Dark Mode</p>
-                            {/*Toggle Switch Container*/}
-                            <div className="md:w-14 md:h-7 w-12 h-6 flex items-center bg-[#EB3C27] rounded-full p-1 cursor-pointer">
-                                {/* Toggle Switch */}
-                                <div className = "bg-white md:w-6 md:h-6 h-5 w-5 rounded-full shadow-md transform"></div>
-                            </div>
-                        </div>
-
-
                         {/*Account Settings*/}
                         <div>
-                            <form className="mt-4 space-y">
+                            <form className="space-y text-white">
                                 <p className="text-xl text-left leading-relaxed">Account Settings</p>
                                 <div>
                                     <label htmlFor="username" className="sr-only ">Username</label>
@@ -68,20 +54,26 @@ export default function GeneralSettings({ showGeneral, onClose }) {
                                 
                             </form>
 
-                            <button className="w-full justify-center my-2 text-white bg-black hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55" onClick={handleUpdatePassword}>
+                            <button className="w-full justify-center my-2 text-white bg-green-700 hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55" 
+                            onClick={() => setShowUpdatePassword(true)} >
                             Update Password
                             </button>
+                            <UpdatePasswordPopup
+                                showUpdatePassword = {showUpdatePassword}
+                                onClose={() => setShowUpdatePassword(false)}
+                            />
                         </div>
+
 
 
 
                         
 
                         <div className="relative mt-4">
-                            <button className="w-full justify-center my-2 text-white bg-black hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55">
+                            <button className="w-full justify-center my-2 text-white bg-green-700 hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55">
                                 Save
                             </button>
-                            <button className="w-full justify-center my-2 text-white bg-gray-600 hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55" onClick={onClose}>
+                            <button className="w-full justify-center my-2 text-white bg-red-500  hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55" onClick={onClose}>
                                 Cancel
                             </button>
                         </div>
