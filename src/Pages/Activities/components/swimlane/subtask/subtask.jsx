@@ -34,7 +34,8 @@ const Subtask = ({
     )
   }
 
-  const renameSubtaskHandler = () => {
+  const renameSubtaskHandler = e => {
+    e.preventDefault()
     if (newSubtask.value === '' || newSubtask.value == subtaskValue) {
       setShowEditInput(false)
     } else {

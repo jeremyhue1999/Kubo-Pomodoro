@@ -43,7 +43,8 @@ const TodoTaskCard = ({
     showAddTaskButton()
   }
 
-  const renameTaskHandler = () => {
+  const renameTaskHandler = e => {
+    e.preventDefault()
     if (editTask) {
       if (newTask === "" || newTask === task.value || newTask === undefined) {
         setEditTask(false)
