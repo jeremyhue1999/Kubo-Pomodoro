@@ -40,7 +40,7 @@ const Login = () => {
             />
           
             {/*Content*/}
-            <div className="flex flex-col bg-white shadow-md text-slate-800 shadow-white w-max-2xl">
+            <div className="flex flex-col text-white border-t-4 w-max-2xl">
         
               <h1 className=" text-4xl font-bold  text-center mt-4">
                 LOGIN
@@ -60,11 +60,11 @@ const Login = () => {
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}
                       placeholder="Username"
-                      className=" flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border-2 border-gray-300 rounded focus:border-gray-400 outline-none "
+                      className="flex w-full px-3 py-3  bg-transparent border-b-2 text-white placeholder-white flex-none mt-4"
                       required
                     ></input>
                     <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 p-2">
-                      <FaUserAlt className="text-black" />
+                      <FaUserAlt className="text-white" />
                     </span>
                   </div>
 
@@ -78,26 +78,26 @@ const Login = () => {
                       id="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      placeholder="Password..."
-                      className="flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border-2 border-gray-300 focus:border-gray-400 outline-none mt-4"
+                      placeholder="Password"
+                      className="flex w-full px-3 py-3  bg-transparent border-b-2 text-white placeholder-white flex-none mt-4"
                       required
                     ></input>
-                    <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 -mb-4 p-2">
-                      <FaLock className="text-black" />
+                    <span className="flex absolute right-0 bg-transparent rounded text-base -mb-4 p-2">
+                      <FaLock className="text-white" />
                     </span>
                   </div>
 
                   <div>
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-orange-500 hover:bg-slate-800 hover:text-white focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mt-4 mb-2"
+                      className="w-full justify-center my-2 text-white bg-orange-500 hover:bg-white hover:text-slate-800 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-3xl text-sm px-5 py-2.5 text-center inline-flex items-center   mt-4 mb-2"
                       onClick={getInput}
                     >
                       Login
                     </button>
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-orange-500 hover:bg-slate-800 hover:text-white focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
+                      className="w-full justify-center my-2 text-white bg-orange-500 hover:bg-white hover:text-slate-800 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-3xl text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 mb-2"
                     >
                       <svg
                         className="w-4 h-4 mr-2 -ml-1"
@@ -134,7 +134,7 @@ const Login = () => {
                     <button
                       type="button"
                       id="signup-button"
-                      className="w-full justify-center my-2 text-white bg-orange-500 hover:bg-slate-800 hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mb-2"
+                      className="w-full justify-center my-2 text-white bg-orange-500 hover:bg-white hover:text-slate-800 font-medium rounded-3xl text-sm px-5 py-2.5 text-center inline-flex items-center mb-2"
                       onClick={handleSignup}
                     >
                       Sign Up

@@ -90,7 +90,8 @@ export default function SoundSettings({showSounds, onClose}) {
                             <button className="w-full justify-center my-2 text-white bg-green-700 hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55">
                                 Apply To Long Break
                             </button>
-                            <button className="w-full justify-center my-2 text-white bg-red-500 hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55" onClick={onClose}>
+                            <button className="w-full justify-center my-2 text-white bg-red-500 hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55" 
+                            onClick={onClose}>
                                 Cancel
                             </button>
                         </div>

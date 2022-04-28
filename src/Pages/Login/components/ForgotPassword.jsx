@@ -23,7 +23,7 @@ const ForgotPassword = () => {
         />
 
         {/*Content*/}
-        <div className="flex flex-col bg-white text-slate-800 shadow-md shadow-white w-100"> 
+        <div className="flex flex-col text-white border-t-4  w-100"> 
               <h1 className=" text-4xl font-bold  text-center mt-4 mr-2 ml-2">
                 FORGOT PASSWORD
               </h1>
@@ -38,25 +38,25 @@ const ForgotPassword = () => {
                       name="email"
                       id="email"
                       placeholder="Email Address"
-                      className=" flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border border-gray-300 focus:border-gray-400 outline-none mb-4"
+                      className=" flex w-full px-3 py-3  bg-transparent border-b-2 text-white placeholder-gray-300 flex-none mb-4"
                       required
                     ></input>
                     <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 mb-4 p-2">
-                      <FaEnvelope className="text-black" />
+                      <FaEnvelope className="text-white" />
                     </span>
                   </div>
 
                   <div>
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-orange-500 hover:bg-slate-800 hover:text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mb-2 "
+                      className="w-full justify-center my-2 text-white bg-orange-500 hover:bg-white hover:text-slate-800 font-medium rounded-3xl text-sm px-5 py-2.5 text-center inline-flex items-center mb-2 "
                       onClick={handleSendCode}
                     >
                       Send Code
                     </button>
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-red-500 hover:bg-slate-800 hover:text-white focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55  mb-2"
+                      className="w-full justify-center my-2 text-white bg-red-500 hover:bg-white hover:text-slate-800 font-medium rounded-3xl text-sm px-5 py-2.5 text-center inline-flex items-center mb-2"
                       onClick={handleCancel}
                     >
                       Cancel

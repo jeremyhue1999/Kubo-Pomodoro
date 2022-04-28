@@ -35,7 +35,7 @@ const Signup = () => {
             />
 
             {/*Content*/}
-            <div className="flex flex-col items-center text-slate-800 bg-white shadow-md shadow-white w-max">
+            <div className="flex flex-col items-center text-white border-t-4 w-max">
               <h1 className=" text-4xl font-bold text-center mt-4">
                 SIGNUP
               </h1>
@@ -54,11 +54,11 @@ const Signup = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Email Address"
-                      className=" flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border-2 border-gray-300 rounded focus:border-gray-400 outline-none mb-4"
+                      className=" flex w-full px-3 py-3  bg-transparent border-b-2 text-white placeholder-gray-300 flex-none mb-4"
                       required
                     ></input>
                     <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 mb-4 p-2">
-                      <FaEnvelope className="text-black" />
+                      <FaEnvelope className="text-white" />
                     </span>
                   </div>
 
@@ -73,11 +73,11 @@ const Signup = () => {
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}
                       placeholder="Username"
-                      className=" flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border-2 border-gray-300 rounded focus:border-gray-400 outline-none "
+                      className="flex w-full px-3 py-3  bg-transparent border-b-2 text-white placeholder-gray-300 flex-none "
                       required
                     ></input>
                     <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 p-2">
-                      <FaUserAlt className="text-black" />
+                      <FaUserAlt className="text-white" />
                     </span>
                   </div>
 
@@ -92,11 +92,11 @@ const Signup = () => {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Password..."
-                      className="flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border-2 border-gray-300focus:border-gray-400 outline-none mt-4"
+                      className="flex w-full px-3 py-3  bg-transparent border-b-2 text-white placeholder-gray-300 flex-none mt-4"
                       required
                     ></input>
                     <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 -mb-4 p-2">
-                      <FaLock className="text-black" />
+                      <FaLock className="text-white" />
                     </span>
                   </div>
 
@@ -110,26 +110,26 @@ const Signup = () => {
                       id="confirm-password"
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
-                      placeholder="Confirm Password..."
-                      className="flex h-48px w-full px-3 py-3 pr-10 placeholder-gray-600 text-black text-18px flex-none border-2 border-gray-300 rounded focus:border-gray-400 outline-none mt-4"
+                      placeholder="Confirm Password"
+                      className="flex w-full px-3 py-3  bg-transparent border-b-2 text-white placeholder-gray-300 flex-none mt-4"
                       required
                     ></input>
                     <span className="flex absolute right-0 bg-transparent rounded text-base text-gray-600 -mb-4 p-2">
-                      <FaLock className="text-black" />
+                      <FaLock className="text-white" />
                     </span>
                   </div>
 
                   <div className="pt-4">
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-orange-500 hover:bg-slate-800 hover:text-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center"
+                      className="w-full justify-center my-2 text-white bg-orange-500 hover:bg-white hover:text-slate-800  font-medium rounded-3xl text-sm px-5 py-2.5 text-center items-center"
                       onClick={getInput}
                     >
                       Signup
                     </button>
                     <button
                       type="button"
-                      className="w-full justify-center my-2 text-white bg-red-500 hover:bg-slate-800 hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+                      className="w-full justify-center my-2 text-white bg-red-500 hover:bg-white hover:text-slate-800 font-medium rounded-3xl text-sm px-5 py-2.5 text-center inline-flex items-center"
                       onClick={handleCancel}
                     >
                       Cancel
